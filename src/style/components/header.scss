@@ -1,0 +1,28 @@
+.header {
+  margin: auto;
+  position: relative;
+  background-color: $darkBlue;
+  height: 40px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+
+  &__wrapper {
+    position: relative;
+    margin: auto;
+    height: 100%;
+    max-width: 1440px;
+
+    &__logo {
+      position: absolute;
+      left: 1.25rem;
+      width: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $primary;
+      padding: 1rem;
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+      box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    }
+  }
+}
