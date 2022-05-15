@@ -1,0 +1,82 @@
+.questionCard {
+  width: 730px;
+  display: flex;
+  flex-direction: column;
+  font-weight: bold;
+  color: $mediumBlue;
+  border-radius: 1rem;
+  overflow: hidden;
+  user-select: none;
+}
+
+.questionCard__header {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+
+  &__counter {
+    font-size: 2rem;
+    min-width: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    background-color: $primary;
+  }
+
+  &__question {
+    width: 90%;
+    position: relative;
+    padding: 1.25rem;
+  }
+}
+
+.questionCard__timer {
+  height: 10px;
+  background-color: $darkBlue;
+
+  &::after {
+    display: block;
+    content: '';
+    height: 100%;
+    width: 0%;
+    animation: timer 20s linear forwards;
+    background-color: $primary;
+  }
+}
+
+@keyframes timer {
+  100% {
+    width: 100%;
+  }
+
+  ;
+}
+
+.questionCard__answers {
+  padding: 1.25rem;
+  gap: 1.25rem;
+  background-color: $darkBlue;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+
+  & button {
+    border: 3px solid transparent;
+    font-size: 0.9rem;
+    color: $mediumBlue;
+    padding: 1.25rem;
+    font-weight: bold;
+    background-color: white;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.4);
+
+    &:hover {
+      border: 3px solid $primary;
+      color: $primary;
+    }
+  }
+}
