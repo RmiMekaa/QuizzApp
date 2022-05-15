@@ -3,9 +3,8 @@ import QuestionCard from '../components/QuestionCard'
 
 export default function quizzPage() {
   return (
-    <>
-      <h1>Quizz Page</h1>
+    <main className='quizzPage'>
       < QuestionCard />
-    </>
+    </main>
   )
 }

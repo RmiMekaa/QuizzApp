@@ -1,5 +1,7 @@
 @import './colors.scss';
+@import './pages/quizzPage.scss';
 @import './components/questionCard.scss';
+@import './components/header.scss';
 
 body {
   margin: 0;
@@ -7,6 +9,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $mediumBlue;
+  user-select: none;
+}
+
+main {
+  padding-top: 5rem;
+  max-width: 1440px;
+  margin: auto;
 }
 
 * {
