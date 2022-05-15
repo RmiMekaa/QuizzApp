@@ -1,10 +1,9 @@
-import QuestionCard from "./components/QuestionCard";
+import QuizzPage from "./pages/QuizzPage.jsx";
 
 export default function App() {
   return (
     <>
-      <h1>Quizz App</h1>
-      <QuestionCard />
+      <QuizzPage />
     </>
   );
 }
