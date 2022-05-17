@@ -19,7 +19,7 @@ export default function Results({ quizz, userAnswers }) {
         <div className='results__answers'>
           {userAnswers.map(answer => {
             let questionNumber = userAnswers.indexOf(answer) + 1;
-            return <span>Question {questionNumber} : {answer}</span>
+            return <span key={'user_answer_' + questionNumber}>Question {questionNumber} : {answer}</span>
           })}
         </div>
       </div>
