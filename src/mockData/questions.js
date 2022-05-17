@@ -47,7 +47,7 @@ const questions = [
   {
     title: "Sur quel support est peint \"La joconde\" ?",
     answers: ["Du bois", "Une toile", "Du papier", "Du plâtre"],
-    correct_answer: "Daniel Buren"
+    correct_answer: "Du bois"
   }
 ]
 
