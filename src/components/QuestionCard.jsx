@@ -5,32 +5,33 @@ import PropTypes from "prop-types"
  * Question card component 
  * @component 
  */
-export default function QuestionCard({ question, questionNumber, setquestionNumber, userAnswers, setUserAnswers }) {
+export default function QuestionCard({ question, index, updateIndex, userAnswers, setUserAnswers }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
-  const [selectedAnswer, setSelectedAnswer] = useState(false)
+  const [selectedAnswer, setSelectedAnswer] = useState(undefined)
 
   const submitAnswer = useCallback((answer) => {
     setSelectedAnswer(answer)
     toggleSwipeCard(true)
     setUserAnswers([...userAnswers, answer])
     setTimeout(() => {
-      setquestionNumber(questionNumber + 1)
+      updateIndex(index + 1)
       toggleSwipeCard(false)
     }, 400)
-  }, [questionNumber, setquestionNumber, userAnswers, setUserAnswers])
+  }, [index, updateIndex, userAnswers, setUserAnswers])
 
+  //Set timer to auto submit after 20s
   useEffect(() => {
-    const timer = setTimeout(() => submitAnswer(), 20000); //Set timer to auto submit after 20s
-    return () => clearTimeout(timer) //Clear timer when the component will unmount
-  }, [questionNumber, setquestionNumber, userAnswers, setUserAnswers, submitAnswer])
+    const timer = setTimeout(() => submitAnswer('Pas de réponse'), 20000);
+    return () => clearTimeout(timer)
+  }, [index, updateIndex, userAnswers, setUserAnswers, submitAnswer])
 
   return (
     <article className={swipeCard ? 'questionCard swipe' : 'questionCard'}>
       <div className='questionCard__header'>
-        <div className='questionCard__header__counter'>{questionNumber + 1}</div>
+        <div className='questionCard__header__counter'>{index + 1}</div>
         <span className='questionCard__header__question'>{question.title}</span>
       </div>
-      <div key={'question ' + questionNumber + ' timer'} className='questionCard__timer'></div> {/*Add a key to force rerender of timer*/}
+      <div key={'question ' + index + ' timer'} className='questionCard__timer'></div> {/*Add a key to force rerender of timer*/}
       <div className='questionCard__answers'>
         {question.answers.map(answer => {
           let key = 'answer_' + question.answers.indexOf(answer);
@@ -51,4 +52,8 @@ export default function QuestionCard({ question, questionNumber, setquestionNumb
 
 QuestionCard.propTypes = {
   question: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired,
+  updateIndex: PropTypes.func.isRequired,
+  userAnswers: PropTypes.array.isRequired,
+  setUserAnswers: PropTypes.func.isRequired,
 }
