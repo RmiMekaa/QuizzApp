@@ -1,11 +1,11 @@
 const questions = [
   {
-    title: "À quel peintre doit-on «Le Voyageur contemplant une mer de nuages» ?",
+    title: "À quel peintre doit-on \"Le Voyageur contemplant une mer de nuages\" ?",
     answers: ["Gustave Courbet", "Caspar David Friedrich", "Théodore Géricault", "Eugène Delacroix"],
     correct_answer: "Caspar David Friedrich"
   },
   {
-    title: "Le terme \"impressionniste\" est inspiré du tableau «Impression au soleil levant». Qui en est le peintre ?",
+    title: "Le terme \"impressionniste\" est inspiré du tableau \"Impression au soleil levant\". Qui en est le peintre ?",
     answers: ["Claude Monet", "Édouard Manet", "Paul Cézanne", "Auguste Renoir"],
     correct_answer: "Claude Monet"
   },
@@ -30,7 +30,7 @@ const questions = [
     correct_answer: "Daniel Buren"
   },
   {
-    title: "Qui a peint «Le baiser» ?",
+    title: "Qui a peint \"Le baiser\" ?",
     answers: ["Ferdinand Hodler", "Odilon Redon", "Gustave Klimt", "Alphonse Osbert"],
     correct_answer: "Gustave Klimt"
   },
@@ -40,12 +40,12 @@ const questions = [
     correct_answer: "Christo"
   },
   {
-    title: "Qui a fait scandale avec son «Urinoir» ?",
+    title: "Qui a fait scandale avec son \"Urinoir\" ?",
     answers: ["Picasso", "Dali", "Andy Warholl", "Marcel Duchamp"],
     correct_answer: "Marcel Duchamp"
   },
   {
-    title: "Sur quel support est peint «La joconde» ?",
+    title: "Sur quel support est peint \"La joconde\" ?",
     answers: ["Du bois", "Une toile", "Du papier", "Du plâtre"],
     correct_answer: "Daniel Buren"
   }
