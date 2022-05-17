@@ -1,18 +1,7 @@
 import React, { useState } from 'react'
 import QuestionCard from '../components/QuestionCard'
+import questions from '../mockData/questions.js'
 
-const questions = [
-  {
-    title: 'À quel peintre doit-on « Le Voyageur contemplant une mer de nuages » ?',
-    answers: ['Gustave Courbet', 'Caspar David Friedrich', 'Théodore Géricault', 'Eugène Delacroix'],
-    correct_answer: 'Caspar David Friedrich'
-  },
-  {
-    title: 'Qui a peint « Le baiser » ?',
-    answers: ['Ferdinand Hodler', 'Odilon Redon', 'Gustave Klimt', 'Alphonse Osbert'],
-    correct_answer: 'Gustave Klimt'
-  }
-]
 
 export default function QuizzPage() {
   const [questionNumber, setquestionNumber] = useState(0)
