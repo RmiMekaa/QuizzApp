@@ -12,6 +12,7 @@
 
   &.swipe {
     animation: cardFadeOut 0.8s forwards;
+    pointer-events: none; //disable hover effects while swipe animation
   }
 }
 
@@ -67,10 +68,12 @@
   & button {
     @include styledButton;
 
-    &:hover {
+    &.selected {
       border: 3px solid $primary;
-      color: $primary;
+      color: white;
+      background-color: $primary;
     }
+
   }
 }
 
