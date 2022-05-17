@@ -4,15 +4,15 @@ import questions from '../mockData/questions.js'
 import Results from '../components/Results'
 
 export default function QuizzPage() {
-  const [questionNumber, setquestionNumber] = useState(0)
+  const [index, updateIndex] = useState(0)
   const [userAnswers, setUserAnswers] = useState([]);
   const quizz = questions;
 
   return (
     <main className='quizzPage'>
-      {(questionNumber > quizz.length - 1)
+      {(index > quizz.length - 1)
         ? <Results {...{ quizz, userAnswers }} />
-        : <QuestionCard question={quizz[questionNumber]} {...{ questionNumber, setquestionNumber, userAnswers, setUserAnswers }} />
+        : <QuestionCard question={quizz[index]} {...{ index, updateIndex, userAnswers, setUserAnswers }} />
       }
     </main>
   )
