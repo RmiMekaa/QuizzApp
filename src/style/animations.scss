@@ -1,0 +1,55 @@
+@keyframes timer {
+  0% {
+    width: 0%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes cardShaking {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(0.2deg);
+  }
+
+  50% {
+    transform: rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(0.2deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes cardFadeOut {
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateX(-750px);
+    opacity: 0;
+  }
+}
+
+@keyframes cardFadeIn {
+  0% {
+    transform: translateX(750px);
+    opacity: 0;
+
+  }
+
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
