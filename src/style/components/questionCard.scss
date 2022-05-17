@@ -65,17 +65,7 @@
 
 
   & button {
-    overflow: hidden;
-    position: relative;
-    border: 3px solid transparent;
-    font-size: 0.9rem;
-    color: $mediumBlue;
-    padding: 1.25rem;
-    font-weight: bold;
-    background-color: white;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.4);
+    @include styledButton;
 
     &:hover {
       border: 3px solid $primary;
