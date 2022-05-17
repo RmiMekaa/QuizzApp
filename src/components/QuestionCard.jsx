@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from "prop-types"
 
 /**
@@ -8,10 +8,19 @@ import PropTypes from "prop-types"
 export default function QuestionCard({ question, questionNumber, setquestionNumber, userAnswers, setUserAnswers }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
 
+  const submitAnswer = useCallback((answer) => {
+    toggleSwipeCard(true)
+    setUserAnswers([...userAnswers, answer])
+    setTimeout(() => {
+      setquestionNumber(questionNumber + 1)
+      toggleSwipeCard(false)
+    }, 800)
+  }, [questionNumber, setquestionNumber, userAnswers, setUserAnswers])
+
   useEffect(() => {
-    const timer = setTimeout(() => handleClick(), 20000); //Set timer to auto submit after 20s
+    const timer = setTimeout(() => submitAnswer(), 20000); //Set timer to auto submit after 20s
     return () => clearTimeout(timer) //Clear timer when the component will unmount
-  }, [questionNumber, setquestionNumber, userAnswers, setUserAnswers, handleClick])
+  }, [questionNumber, setquestionNumber, userAnswers, setUserAnswers, submitAnswer])
 
   return (
     <article className={swipeCard ? 'questionCard swipe' : 'questionCard'}>
@@ -24,7 +33,7 @@ export default function QuestionCard({ question, questionNumber, setquestionNumb
         {question.answers.map(answer => {
           let key = 'answer_' + question.answers.indexOf(answer);
           return (
-            <button key={key} onClick={() => handleClick(answer)}>
+            <button key={key} onClick={() => submitAnswer(answer)}>
               {answer}
             </button>
           )
@@ -32,16 +41,6 @@ export default function QuestionCard({ question, questionNumber, setquestionNumb
       </div>
     </article >
   )
-
-  function handleClick(answer) {
-    toggleSwipeCard(true)
-    setUserAnswers([...userAnswers, answer])
-    setTimeout(() => {
-      setquestionNumber(questionNumber + 1)
-      toggleSwipeCard(false)
-    }, 800)
-  }
-
 }
 
 QuestionCard.propTypes = {
