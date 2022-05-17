@@ -7,15 +7,17 @@ import PropTypes from "prop-types"
  */
 export default function QuestionCard({ question, questionNumber, setquestionNumber, userAnswers, setUserAnswers }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
+  const [selectedAnswer, setSelectedAnswer] = useState(false)
 
   const submitAnswer = useCallback((answer) => {
+    setSelectedAnswer(answer)
     toggleSwipeCard(true)
-    setUserAnswers([...userAnswers, answer])
+    setUserAnswers([...userAnswers, selectedAnswer])
     setTimeout(() => {
       setquestionNumber(questionNumber + 1)
       toggleSwipeCard(false)
     }, 800)
-  }, [questionNumber, setquestionNumber, userAnswers, setUserAnswers])
+  }, [selectedAnswer, questionNumber, setquestionNumber, userAnswers, setUserAnswers])
 
   useEffect(() => {
     const timer = setTimeout(() => submitAnswer(), 20000); //Set timer to auto submit after 20s
@@ -33,7 +35,11 @@ export default function QuestionCard({ question, questionNumber, setquestionNumb
         {question.answers.map(answer => {
           let key = 'answer_' + question.answers.indexOf(answer);
           return (
-            <button key={key} onClick={() => submitAnswer(answer)}>
+            <button
+              key={key}
+              onClick={() => submitAnswer(answer)}
+              className={answer === selectedAnswer ? 'selected' : null}
+            >
               {answer}
             </button>
           )
