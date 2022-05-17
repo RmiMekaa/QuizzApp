@@ -29,12 +29,8 @@
 
 }
 
-.header__logo:hover {
-  background-color: adjust-hue($primary, 5);
-
-  & img {
-    animation: shaking 0.4s infinite;
-  }
+.header__logo:hover img {
+  animation: shaking 0.4s infinite;
 }
 
 @keyframes shaking {

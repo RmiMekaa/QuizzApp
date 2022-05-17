@@ -8,6 +8,11 @@
   overflow: hidden;
   user-select: none;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  animation: cardFadeIn 0.8s forwards, cardShaking 0.5s 10 15s;
+
+  &.swipe {
+    animation: cardFadeOut 0.8s forwards;
+  }
 }
 
 .questionCard__header {
@@ -39,25 +44,20 @@
   background-color: $darkBlue;
 
   &::after {
+    background-color: $primary;
     display: block;
     content: '';
     height: 100%;
     width: 0%;
     animation: timer 20s linear forwards;
-    background-color: $primary;
   }
 }
 
-@keyframes timer {
-  100% {
-    width: 100%;
-  }
-
-  ;
-}
+// -------------- ANSWERS ------------------------------------------//
 
 .questionCard__answers {
   padding: 1.25rem;
+  padding-bottom: 1.875rem;
   gap: 1.25rem;
   background-color: $darkBlue;
   display: grid;
@@ -65,6 +65,8 @@
 
 
   & button {
+    overflow: hidden;
+    position: relative;
     border: 3px solid transparent;
     font-size: 0.9rem;
     color: $mediumBlue;
@@ -79,5 +81,63 @@
       border: 3px solid $primary;
       color: $primary;
     }
+  }
+}
+
+.questionCard__answers button.selected {
+  background-color: $primary;
+  color: white;
+}
+
+// .menu__card__effect {
+//   @include flexBox(row, center, center);
+//   width: 0;
+//   height: 100%;
+//   background-color: $tertiary-color;
+//   transition: width 0.5s;
+// }
+
+// .questionCard__answers button::after {
+//   content: "\f058";
+//   font-family: 'Font Awesome 5 Free';
+//   font-weight: bold;
+//   width: 2rem;
+//   height: 2rem;
+//   color: $primary;
+//   position: absolute;
+//   font-size: 2rem;
+//   line-height: 2rem;
+//   top: 12px;
+//   right: -2rem;
+//   transition: transform 0.4s;
+// }
+
+// .questionCard__answers button:hover::after {
+//   transform: translateX(-3rem);
+// }
+
+// //.menu__card:hover .menu__card__effect {}
+
+// .menu__card:hover .menu__card__effect::after {
+//   transform: rotate(360deg);
+//   transition: transform 0.5s;
+// }
+
+// ------------------------------------------------------------ //
+
+.questionCard__validate {
+  background-color: white;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  padding: 1.25rem;
+  color: $mediumBlue;
+  border: 3px solid transparent;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  &:hover {
+    border: 3px solid $primary;
+    color: $primary;
   }
 }
