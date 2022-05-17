@@ -12,12 +12,12 @@ export default function QuestionCard({ question, questionNumber, setquestionNumb
   const submitAnswer = useCallback((answer) => {
     setSelectedAnswer(answer)
     toggleSwipeCard(true)
-    setUserAnswers([...userAnswers, selectedAnswer])
+    setUserAnswers([...userAnswers, answer])
     setTimeout(() => {
       setquestionNumber(questionNumber + 1)
       toggleSwipeCard(false)
-    }, 800)
-  }, [selectedAnswer, questionNumber, setquestionNumber, userAnswers, setUserAnswers])
+    }, 400)
+  }, [questionNumber, setquestionNumber, userAnswers, setUserAnswers])
 
   useEffect(() => {
     const timer = setTimeout(() => submitAnswer(), 20000); //Set timer to auto submit after 20s

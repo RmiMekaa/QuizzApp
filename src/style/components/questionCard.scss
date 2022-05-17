@@ -8,10 +8,10 @@
   overflow: hidden;
   user-select: none;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-  animation: cardFadeIn 0.8s forwards, cardShaking 0.5s 10 15s;
+  animation: cardFadeIn 0.4s forwards, cardShaking 0.5s 10 15s;
 
   &.swipe {
-    animation: cardFadeOut 0.8s forwards;
+    animation: cardFadeOut 0.4s forwards;
     pointer-events: none; //disable hover effects while swipe animation
   }
 }
