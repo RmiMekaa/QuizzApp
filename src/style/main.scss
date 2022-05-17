@@ -1,9 +1,10 @@
 @import './colors.scss';
 @import './mixins/styledButton.scss';
 @import './animations.scss';
-@import './pages/quizzPage.scss';
 @import './components/questionCard.scss';
 @import './components/header.scss';
+@import './pages/homePage.scss';
+@import './pages/quizzPage.scss';
 
 body {
   margin: 0;
