@@ -2,7 +2,7 @@
   margin: auto;
   position: relative;
   background-color: $darkBlue;
-  height: 40px;
+  height: 2.5rem;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
 
   &__wrapper {
@@ -10,12 +10,12 @@
     margin: auto;
     height: 100%;
     max-width: 1440px;
+    padding-left: 1.25rem;
   }
 
   &__logo {
     position: absolute;
-    left: 1.25rem;
-    width: 60px;
+    width: 3.75rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,30 +27,27 @@
     cursor: pointer;
   }
 
+  & span {
+    display: inline-block;
+    position: relative;
+    font-weight: bold;
+    top: 1rem;
+    //background-color: blue;
+    left: 3.75rem;
+    padding-left: 0.5rem;
+    color: white;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
 }
 
 .header__logo:hover img {
-  animation: shaking 0.4s infinite;
+  animation: logoShaking 0.4s infinite;
 }
 
-@keyframes shaking {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(4deg);
-  }
-
-  50% {
-    transform: rotate(0deg);
-  }
-
-  75% {
-    transform: rotate(-4deg);
-  }
-
-  100% {
-    transform: rotate(0deg);
-  }
+.header__logo:hover+span {
+  //background-color: red;
+  transform: scaleX(1);
+  transition: transform 0.2s
 }

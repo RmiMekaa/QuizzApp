@@ -1,13 +1,17 @@
 import React from 'react'
+import { useLocation } from 'react-router-dom';
 import Logo from '../images/logo.png'
 
 export default function Header() {
+  const location = useLocation();
+
   return (
     <header className='header'>
       <div className='header__wrapper'>
-        <div className='header__logo'>
+        <a href="/" className='header__logo'>
           <img src={Logo} alt='logo' width={32} />
-        </div>
+        </a>
+        {location.pathname !== '/' && <span>Retour au menu</span>}
       </div>
     </header>
   )
