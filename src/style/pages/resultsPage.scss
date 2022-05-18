@@ -1,6 +1,7 @@
-.results {
+.resultsPage {
   color: white;
   display: flex;
+  align-items: center;
   flex-direction: column;
   text-align: left;
 
@@ -34,4 +35,9 @@
     padding: 2.5rem;
     text-align: left;
   }
+}
+
+.progress_bar {
+  width: 0;
+  transition: 'width 5s'
 }
