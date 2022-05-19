@@ -5,10 +5,10 @@ import PropTypes from "prop-types"
  * Question card component 
  * @component 
  */
-export default function QuestionCard({ question, index, updateIndex }) {
+export default function QuestionCard({ index, question, updateIndex }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState(undefined)
-
+  const answers = [...question.incorrect_answers, question.correct_answer]
   /**
    * Action on submit
    * Add property user answer to the question object, trigger animation and update question index
@@ -34,12 +34,12 @@ export default function QuestionCard({ question, index, updateIndex }) {
     <article className={swipeCard ? 'questionCard swipe' : 'questionCard'}>
       <div className='questionCard__header'>
         <div className='questionCard__header__counter'>{index + 1}</div>
-        <span className='questionCard__header__question'>{question.title}</span>
+        <span className='questionCard__header__question'>{question.question}</span>
       </div>
       <div key={'question ' + index + ' timer'} className='questionCard__timer'></div> {/*Add a key to force timer to reset on render update*/}
       <div className='questionCard__answers'>
-        {question.answers.map(answer => {
-          let key = 'answer_' + question.answers.indexOf(answer);
+        {answers.map(answer => {
+          let key = 'answer_' + answers.indexOf(answer);
           return (
             <button
               key={key}
@@ -56,7 +56,7 @@ export default function QuestionCard({ question, index, updateIndex }) {
 }
 
 QuestionCard.propTypes = {
-  question: PropTypes.object.isRequired,
-  index: PropTypes.number.isRequired,
-  updateIndex: PropTypes.func.isRequired,
+  question: PropTypes.object.isRequired, //A question object
+  index: PropTypes.number.isRequired, //The question number
+  updateIndex: PropTypes.func.isRequired, //Callback to update question number
 }
