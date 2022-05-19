@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from "prop-types"
-
+import shuffle from '../utils/shuffle'
 /**
  * Question card component 
  * @component 
@@ -8,7 +8,8 @@ import PropTypes from "prop-types"
 export default function QuestionCard({ index, question, updateIndex }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState(undefined)
-  const answers = [...question.incorrect_answers, question.correct_answer]
+  const answers = question.type === 'boolean' ? ['True', 'False'] : shuffle([...question.incorrect_answers, question.correct_answer])
+
   /**
    * Action on submit
    * Add property user answer to the question object, trigger animation and update question index

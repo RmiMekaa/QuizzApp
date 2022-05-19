@@ -3,7 +3,7 @@
  * @param {array} arr
  * @returns {array} //shuffled array
  */
-export function shuffle(arr) {
+export default function shuffle(arr) {
   let j, x, index;
   for (index = arr.length - 1; index > 0; index--) {
     j = Math.floor(Math.random() * (index + 1));
