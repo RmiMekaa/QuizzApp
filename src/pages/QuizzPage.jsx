@@ -1,22 +1,20 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import QuestionCard from '../components/QuestionCard'
-import mockQuizz from '../mockData/mockQuizz.js'
-import { Navigate } from 'react-router-dom'
+import useGetQuizz from '../hooks/useGetQuizz'
+import Results from '../components/Results'
 
-export default function QuizzPage({ difficulty, category, quizz, setQuizz }) {
+export default function QuizzPage({ difficulty, category }) {
   const [index, updateIndex] = useState(0)
+  const { loading, quizz, error } = useGetQuizz(difficulty, category)
 
-  useEffect(() => {
-    //Fetch quizz here
-    setQuizz(mockQuizz)
-  }, [setQuizz])
-
+  if (loading) return <span>Loading...</span>
+  if (error) console.error(error)
   if (!quizz) return;
 
   return (
     <main className='quizzPage'>
       {index > quizz.length - 1
-        ? <Navigate to="/results" />
+        ? <Results {...{ quizz }} />
         : <QuestionCard question={quizz[index]} {...{ index, updateIndex }} />
       }
     </main>
