@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function ResultsPage({ quizz }) {
+export default function Results({ quizz }) {
 
   if (!quizz) return;
 
@@ -16,11 +16,11 @@ export default function ResultsPage({ quizz }) {
   }
 
   return (
-    <main className='resultsPage'>
+    <main className='results'>
       <h2>Results</h2>
-      <div className='resultsPage__container'>
-        <div className='resultsPage__score'>{score}</div>
-        <div className='resultsPage__answers'>
+      <div className='results__container'>
+        <div className='results__score'>{score}</div>
+        <div className='results__answers'>
           {resume.map(res => {
             let questionNumber = resume.indexOf(res) + 1;
             return <p key={'user_answer_' + questionNumber}>
