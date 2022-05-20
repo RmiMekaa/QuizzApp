@@ -3,7 +3,7 @@ import axios from 'axios'
 import formatQuizz from '../utils/formatQuizz'
 
 /**
- * Custom Hook to fetch a quizz from the openTriviaDB API
+ * Custom Hook to fetch a quizz from The Trivia API
  * @param   {string}  category    The required category
  * @param   {string}  difficulty  The required difficulty
  * @return  {Object}  The state for loading, quizz and error
@@ -13,14 +13,14 @@ export default function useGetQuizz(category, difficulty) {
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
-  const baseUrl = "https://opentdb.com/api.php?amount=10";
+  const baseUrl = "https://the-trivia-api.com/api/questions?limit=10";
 
   useEffect(() => {
     setLoading(true)
     axios
       .get(baseUrl)
       .then(response => {
-        let quizz = formatQuizz(response.data.results) //Format quizz
+        let quizz = formatQuizz(response.data) //Format quizz
         setQuizz(quizz)
       })
       .catch(err => setError(err))

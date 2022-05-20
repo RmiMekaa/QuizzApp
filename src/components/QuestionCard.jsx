@@ -17,7 +17,7 @@ export default function QuestionCard({ index, question, updateIndex }) {
   const submitAnswer = useCallback((answer) => {
     setSelectedAnswer(answer)
     toggleSwipeCard(true)
-    question.user_answer = answer;
+    question.userAnswer = answer;
     setTimeout(() => {
       updateIndex(index + 1)
       toggleSwipeCard(false)

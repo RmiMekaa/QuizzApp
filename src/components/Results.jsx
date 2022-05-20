@@ -9,10 +9,10 @@ export default function Results({ quizz }) {
   for (let i = 0; i < quizz.length; i++) {
     resume.push({
       question: quizz[i].title,
-      correct_answer: quizz[i].correct_answer,
-      user_answer: quizz[i].user_answer
+      correctAnswer: quizz[i].correctAnswer,
+      userAnswer: quizz[i].userAnswer
     })
-    if (quizz[i].correct_answer === quizz[i].user_answer) score++;
+    if (quizz[i].correctAnswer === quizz[i].userAnswer) score++;
   }
 
   return (
@@ -26,8 +26,8 @@ export default function Results({ quizz }) {
             return (
               <p className="results__answers__resume" key={'user_answer_' + questionNumber}>
                 Question {questionNumber} : {questionResume.question}
-                Correct answer : {questionResume.correct_answer}
-                Your answer : {questionResume.user_answer}
+                Correct answer : {questionResume.correctAnswer}
+                Your answer : {questionResume.userAnswer}
               </p>
             )
           })}
