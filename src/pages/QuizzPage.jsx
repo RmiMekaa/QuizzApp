@@ -3,19 +3,20 @@ import QuestionCard from '../components/QuestionCard'
 import useGetQuizz from '../hooks/useGetQuizz'
 import Results from '../components/Results'
 
-export default function QuizzPage({ difficulty, category }) {
+export default function QuizzPage({ category, difficulty }) {
   const [index, updateIndex] = useState(0)
   const { loading, quizz, error } = useGetQuizz(difficulty, category)
 
+  if (!quizz) return;
   if (loading) return <span>Loading...</span>
   if (error) console.error(error)
-  if (!quizz) return;
 
   return (
     <main className='quizzPage'>
-      {index > quizz.length - 1
+      {index === quizz.length
         ? <Results {...{ quizz }} />
-        : <QuestionCard question={quizz[index]} {...{ index, updateIndex }} />
+        : <QuestionCard question={quizz[index]} index={index} updateIndex={updateIndex}
+        />
       }
     </main>
   )
