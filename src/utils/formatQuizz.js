@@ -36,4 +36,5 @@ function unescapeHtml(string) {
     .replaceAll('&#039;', "'")
     .replaceAll("&laquo;", "«")
     .replaceAll("&raquo;", "«")
+    .replaceAll("&eacute;", "é")
 }
