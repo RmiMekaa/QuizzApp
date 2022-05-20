@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from "prop-types"
-import shuffle from '../utils/shuffle'
+
 /**
  * Question card component 
  * @component 
@@ -8,7 +8,6 @@ import shuffle from '../utils/shuffle'
 export default function QuestionCard({ index, question, updateIndex }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState(undefined)
-  const answers = question.type === 'boolean' ? ['True', 'False'] : shuffle([...question.incorrect_answers, question.correct_answer])
 
   /**
    * Action on submit
@@ -39,11 +38,10 @@ export default function QuestionCard({ index, question, updateIndex }) {
       </div>
       <div key={'question ' + index + ' timer'} className='questionCard__timer'></div> {/*Add a key to force timer to reset on render update*/}
       <div className='questionCard__answers'>
-        {answers.map(answer => {
-          let key = 'answer_' + answers.indexOf(answer);
+        {question.answers.map(answer => {
           return (
             <button
-              key={key}
+              key={'answer_' + answer}
               onClick={() => submitAnswer(answer)}
               className={answer === selectedAnswer ? 'selected' : null}
             >
