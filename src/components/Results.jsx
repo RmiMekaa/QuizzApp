@@ -21,13 +21,15 @@ export default function Results({ quizz }) {
       <div className='results__container'>
         <div className='results__score'>{score}</div>
         <div className='results__answers'>
-          {resume.map(res => {
-            let questionNumber = resume.indexOf(res) + 1;
-            return <p key={'user_answer_' + questionNumber}>
-              Question {questionNumber} : {res.question}
-              Correct answer : {res.correct_answer}
-              Your answer : {res.user_answer}
-            </p>
+          {resume.map(questionResume => {
+            let questionNumber = resume.indexOf(questionResume) + 1;
+            return (
+              <p className="results__answers__resume" key={'user_answer_' + questionNumber}>
+                Question {questionNumber} : {questionResume.question}
+                Correct answer : {questionResume.correct_answer}
+                Your answer : {questionResume.user_answer}
+              </p>
+            )
           })}
         </div>
       </div>
