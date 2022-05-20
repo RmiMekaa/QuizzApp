@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import formatQuizz from '../utils/formatQuizz'
 
-export default function useGetQuizz(category, difficulty) {
+export default function useGetQuizz(category = 'Any', difficulty = 'Any') {
   const [quizz, setQuizz] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -12,7 +13,10 @@ export default function useGetQuizz(category, difficulty) {
     setLoading(true)
     axios
       .get(baseUrl)
-      .then(response => setQuizz(response.data.results))
+      .then(response => {
+        let quizz = formatQuizz(response.data.results)
+        setQuizz(quizz)
+      })
       .catch(err => setError(err))
       .finally(() => setLoading(false))
   }, [category, difficulty])
