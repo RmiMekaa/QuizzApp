@@ -13,8 +13,7 @@ export default function formatQuizz(quizz) {
     question.question = unescapeHtml(question.question);
     if (quizz[i].type === 'boolean') question.answers = ['True', 'False'] //Always display 'True | False' in that order
     else {
-      question.answers.map(answer => answer = unescapeHtml(answer))
-      shuffle(question.answers) //Shuffle answers array
+      shuffle(question.answers.map(answer => answer = unescapeHtml(answer))) //Shuffle answers array
     }
     quizz[i] = question;
   }
