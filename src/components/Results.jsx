@@ -1,4 +1,5 @@
 import React from 'react'
+import Resume from './Resume';
 
 export default function Results({ quizz }) {
 
@@ -8,7 +9,8 @@ export default function Results({ quizz }) {
   const resume = [];
   for (let i = 0; i < quizz.length; i++) {
     resume.push({
-      question: quizz[i].title,
+      index: i + 1,
+      question: quizz[i].question,
       correctAnswer: quizz[i].correctAnswer,
       userAnswer: quizz[i].userAnswer
     })
@@ -16,23 +18,14 @@ export default function Results({ quizz }) {
   }
 
   return (
-    <main className='results'>
+    <section className='results'>
       <h2>Results</h2>
-      <div className='results__container'>
-        <div className='results__score'>{score}</div>
-        <div className='results__answers'>
-          {resume.map(questionResume => {
-            let questionNumber = resume.indexOf(questionResume) + 1;
-            return (
-              <p className="results__answers__resume" key={'user_answer_' + questionNumber}>
-                Question {questionNumber} : {questionResume.question}
-                Correct answer : {questionResume.correctAnswer}
-                Your answer : {questionResume.userAnswer}
-              </p>
-            )
-          })}
-        </div>
+      {/* <div className='results__score'>{score}</div> */}
+      <div className='results__answers'>
+        {resume.map(questionResume => {
+          return <Resume {...{ questionResume }} />
+        })}
       </div>
-    </main>
+    </section >
   )
 }
