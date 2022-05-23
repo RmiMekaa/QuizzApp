@@ -7,13 +7,14 @@ import HomePage from "./pages/HomePage.jsx";
 export default function App() {
   const [difficulty, setDifficulty] = useState('Any');
   const [category, setCategory] = useState('Any');
+  const [quantity, setQuantity] = useState(10);
 
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage {...{ difficulty, category, setDifficulty, setCategory }} />} />
-        <Route path="/quizz" element={<QuizzPage {...{ difficulty, category }} />} />
+        <Route path="/" element={<HomePage {...{ setDifficulty, setCategory, quantity, setQuantity }} />} />
+        <Route path="/quizz" element={<QuizzPage {...{ difficulty, category, quantity }} />} />
       </Routes>
     </BrowserRouter>
   );
