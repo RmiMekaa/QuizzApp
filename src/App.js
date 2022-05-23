@@ -5,16 +5,28 @@ import QuizzPage from "./pages/QuizzPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 
 export default function App() {
-  const [difficulty, setDifficulty] = useState('Any');
-  const [category, setCategory] = useState('Any');
-  const [quantity, setQuantity] = useState(10);
+  const [selectedDifficulty, setDifficulty] = useState('Any');
+  const [selectedCategory, setCategory] = useState('Any');
+  const [selectedQuantity, setQuantity] = useState(10);
 
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<HomePage {...{ setDifficulty, setCategory, quantity, setQuantity }} />} />
-        <Route path="/quizz" element={<QuizzPage {...{ difficulty, category, quantity }} />} />
+        <Route
+          path="/"
+          element={
+            <HomePage {...{
+              selectedDifficulty,
+              setDifficulty,
+              selectedCategory,
+              setCategory,
+              selectedQuantity,
+              setQuantity
+            }}
+            />}
+        />
+        <Route path="/quizz" element={<QuizzPage {...{ selectedCategory, selectedDifficulty, selectedQuantity }} />} />
       </Routes>
     </BrowserRouter>
   );
