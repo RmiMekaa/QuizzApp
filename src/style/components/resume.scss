@@ -2,7 +2,9 @@
   background-color: $darkBlue;
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
-  width: 25rem;
+  width: 50rem;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+
 
   & summary {
     position: relative;
