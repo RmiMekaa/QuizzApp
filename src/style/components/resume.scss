@@ -1,0 +1,88 @@
+.resume {
+  background-color: $darkBlue;
+  border-top-right-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
+  width: 25rem;
+
+  & summary {
+    position: relative;
+    padding: 0.5rem 1rem;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  &__content {
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+
+    & span.correctAnswer {
+      color: $green;
+
+      & strong {
+        color: white;
+      }
+    }
+
+    & span.userAnswer {
+      color: $primary;
+
+      & strong {
+        color: white;
+      }
+    }
+
+
+    & span:first-child {
+      padding-bottom: 0.5rem;
+    }
+
+    & span:last-child {
+      padding-bottom: 0.5rem;
+    }
+  }
+}
+
+// Clear default arrow
+summary::-webkit-details-marker {
+  display: none;
+}
+
+//Add my own icon
+summary::after {
+  font-family: "Font Awesome 5 Free";
+  content: '\f078';
+  font-weight: bold;
+}
+
+summary::before {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: -2.5rem;
+  border-top-left-radius: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  width: 2.5rem;
+  font-family: "Font Awesome 5 Free";
+  content: '\f00d';
+  background-color: $primary;
+  height: 100%;
+  font-weight: bold;
+}
+
+.resume.correct summary::before {
+  background-color: $green;
+  content: '\f00c';
+}
+
+.resume[open] {
+  border-bottom-left-radius: 0.5rem;
+
+  & summary::after {
+    content: "\f077";
+  }
+}
