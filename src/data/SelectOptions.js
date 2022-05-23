@@ -19,6 +19,6 @@ const difficultyOptions = [
   "Hard"
 ]
 
-const amountOptions = [1, 5, 10, 20]
+const quantityOptions = [1, 5, 10, 20] // ! Limited at 20 by the API
 
-export { categoryOptions, difficultyOptions, amountOptions }
+export { categoryOptions, difficultyOptions, quantityOptions }
