@@ -1,5 +1,6 @@
 import React from 'react'
 import Resume from './Resume';
+import ScoreBar from './ScoreBar';
 
 export default function Results({ quizz }) {
 
@@ -20,7 +21,7 @@ export default function Results({ quizz }) {
   return (
     <section className='results'>
       <h2>Results</h2>
-      {/* <div className='results__score'>{score}</div> */}
+      <ScoreBar quizz={quizz} score={score} />
       <div className='results__answers'>
         {resume.map(questionResume => {
           return <Resume {...{ questionResume }} />
