@@ -1,0 +1,47 @@
+.categories {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 5rem);
+  gap: 0.75rem;
+}
+
+.categoryCard {
+  position: relative;
+  color: white;
+  cursor: pointer;
+  border-radius: 1rem;
+  border: 4px solid transparent;
+  overflow: hidden;
+
+  & img {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.2s ease-in;
+    filter: grayscale(100%);
+  }
+
+  & h4 {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    color: white;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+  }
+}
+
+.categoryCard:hover,
+.categoryCard--active {
+  border: 4px solid $primary;
+
+  & img {
+    transform: scale(1.1);
+    filter: grayscale(0%);
+  }
+}
