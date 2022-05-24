@@ -3,7 +3,8 @@
   color: white;
   cursor: pointer;
   border-radius: 1rem;
-  border: 4px solid transparent;
+  border: none;
+  //border: 4px solid transparent;
   overflow: hidden;
 
   & img {
@@ -11,7 +12,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    transition: transform 0.2s ease-in;
+    //transition: transform 0.2s ease-in;
     filter: grayscale(100%);
   }
 
@@ -34,15 +35,19 @@
   border: 4px solid $primary;
 
   & img {
+    animation: zoom 0.4s forwards;
+  }
+}
+
+@keyframes zoom {
+  100% {
     transform: scale(1.1);
     filter: grayscale(0%);
   }
 }
 
 .categories {
-  border-radius: 1rem;
-  background-color: $darkBlue;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+  @include defaultContainer;
 
   &__heading {
     display: none
@@ -53,12 +58,11 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(3, 5rem);
-    gap: 0.75rem;
-    padding: 1.25rem;
+    gap: 1.25rem;
   }
 }
 
-.categories__container article {
+.categories__container button {
   animation: categoryCard 0.4s backwards;
 
   &:nth-child(2) {

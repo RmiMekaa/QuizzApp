@@ -1,5 +1,6 @@
 @import './colors.scss';
 @import './mixins/styledButton.scss';
+@import './mixins/defaultContainer.scss';
 @import './animations.scss';
 @import './components/questionCard.scss';
 @import './components/header.scss';
@@ -7,6 +8,8 @@
 @import './components/resume.scss';
 @import './components/scoreBar.scss';
 @import './components/categories.scss';
+@import './components/difficulties.scss';
+
 @import './pages/homePage.scss';
 @import './pages/quizzPage.scss';
 

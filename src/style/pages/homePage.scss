@@ -1,3 +1,20 @@
-.homePage button {
+.homePage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.startButton {
+  position: absolute;
+  top: -2.5rem;
+  right: 1.25rem;
   @include styledButton;
+  background-color: $primary;
+  color: white;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  width: 10rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
