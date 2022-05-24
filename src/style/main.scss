@@ -31,3 +31,10 @@ main {
   padding: 0;
   box-sizing: border-box;
 }
+
+@media all and (max-width: 768px) {
+  main {
+    padding: 3rem 0;
+
+  }
+}
