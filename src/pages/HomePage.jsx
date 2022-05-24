@@ -1,7 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import { categoryOptions, difficultyOptions, quantityOptions } from '../data/SelectOptions'
 import Categories from '../components/Categories';
+import Difficulties from '../components/Difficulties';
+import Quantity from '../components/Quantity';
 
 export default function HomePage({
   selectedDifficulty,
@@ -16,14 +17,12 @@ export default function HomePage({
   return (
     <main className='homePage'>
       <Categories {...{ selectedCategory, setCategory }} />
-      <select onChange={(e) => setDifficulty(e.target.value)}>
-        {difficultyOptions.map(option => <option key={option}>{option}</option>)}
-      </select>
-      <select value={selectedQuantity} onChange={(e) => setQuantity(e.target.value)}>
-        {quantityOptions.map(option => <option key={option}>{option}</option>)}
-      </select>
+      <div style={{ display: 'flex', gap: '1.25rem' }}>
+        <Difficulties {...{ selectedDifficulty, setDifficulty }} />
+        <Quantity {...{ selectedQuantity, setQuantity }} />
+      </div>
 
-      <button onClick={() => {
+      <button className='startButton' onClick={() => {
         navigate('/quizz')
       }}>Start</button>
     </main>
