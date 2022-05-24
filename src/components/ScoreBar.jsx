@@ -7,8 +7,8 @@ export default function ScoreBar({ quizz, score }) {
   }
 
   const text = () => {
-    if (score === quizz.length) return "Bravo, c'est un perfect !"
-    if (score > quizz.length / 2) return "Pas mal pour un amateur..."
+    if (score === quizz.length) return "Score parfait ! Chapeau l'artiste !"
+    if (score > quizz.length / 2) return "Je suis sûr que tu peux faire mieux !"
     if (score === quizz.length / 2) return 'Ouf ! Tout juste la moyenne !'
     if (score < quizz.length / 2) return "Oups, des révisions s'imposent !"
     if (score === 0) return "Aïe..."
