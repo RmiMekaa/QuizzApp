@@ -58,7 +58,7 @@
   }
 }
 
-.categories__container div {
+.categories__container article {
   animation: categoryCard 0.4s backwards;
 
   &:nth-child(2) {
