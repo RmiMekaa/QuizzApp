@@ -9,10 +9,15 @@ export default function QuestionCard({ index, question, updateIndex }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState(undefined)
 
+  const initialCountdown = 20;
+  const [countdown, setCountdown] = useState(initialCountdown);
+
   /**
-   * Action on submit
-   * Add property user answer to the question object, trigger animation and update question index
-   * UseCallBack needed to avoid useEffect dependency change on every render
+   * Action on submit (UseCallBack needed to avoid useEffect dependency change on every render)
+   * - Add property user answer to the question object
+   * - Trigger animation
+   * - Update question index
+   * - Reset countdown
    */
   const submitAnswer = useCallback((answer) => {
     setSelectedAnswer(answer)
@@ -20,23 +25,30 @@ export default function QuestionCard({ index, question, updateIndex }) {
     question.userAnswer = answer;
     setTimeout(() => {
       updateIndex(index + 1)
+      setCountdown(initialCountdown)
       toggleSwipeCard(false)
     }, 400)
   }, [question, index, updateIndex])
 
-  //Handles timer, submitAnswer function will be called with 'No response' in parameter after 20s
+  //Handles timer, submitAnswer() will be called with 'No response' in parameter after 20s
   useEffect(() => {
-    const timer = setTimeout(() => submitAnswer('Pas de réponse'), 20000);
-    return () => clearTimeout(timer)
-  }, [index, updateIndex, submitAnswer])
+    const timer = setInterval(() => {
+      if (countdown === 1) submitAnswer('Pas de réponse');
+      else setCountdown(countdown - 1);
+    }, 1000)
+    return () => {
+      clearInterval(timer)
+    }
+  }, [index, updateIndex, submitAnswer, countdown])
 
   return (
     <article className={swipeCard ? 'questionCard swipe' : 'questionCard'}>
       <div className='questionCard__header'>
-        <div className='questionCard__header__counter'>{index + 1}</div>
+        <div className='questionCard__header__index'>{index + 1}</div>
         <span className='questionCard__header__question'>{question.question}</span>
+        <div className='questionCard__header__countdown'>{countdown}</div>
       </div>
-      <div key={'question ' + index + ' timer'} className='questionCard__timer'></div> {/*Add a key to force timer to reset on render update*/}
+      <div key={'question_' + index + '_timer'} className='questionCard__timer'></div> {/*Add a key to force timer to reset on render update*/}
       <div className='questionCard__answers'>
         {question.answers.map(answer => {
           return (
@@ -51,6 +63,7 @@ export default function QuestionCard({ index, question, updateIndex }) {
         })}
       </div>
     </article >
+
   )
 }
 

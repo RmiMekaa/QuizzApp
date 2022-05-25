@@ -1,11 +1,11 @@
 .questionCard {
+  position: relative;
   width: 730px;
   display: flex;
   flex-direction: column;
   font-weight: bold;
   color: $mediumBlue;
   border-radius: 1rem;
-  overflow: hidden;
   user-select: none;
   box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   animation: cardFadeIn 0.6s ease-out forwards, cardShaking 0.5s 10 15s;
@@ -14,85 +14,97 @@
     animation: cardFadeOut 0.6s forwards;
     pointer-events: none; //disable hover effects while swipe animation
   }
-}
 
-.questionCard__header {
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  background-color: white;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
-
-  &__counter {
-    font-size: 2rem;
-    min-width: 10%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background-color: $primary;
-  }
-
-  &__question {
-    width: 90%;
+  &__header {
     position: relative;
-    padding: 1.25rem;
-  }
-}
-
-.questionCard__timer {
-  height: 10px;
-  background-color: $darkBlue;
-
-  &::after {
-    background-color: $primary;
-    display: block;
-    content: '';
-    height: 100%;
-    width: 0%;
-    animation: timer 20s linear forwards;
-  }
-}
-
-// -------------- ANSWERS ------------------------------------------//
-
-.questionCard__answers {
-  padding: 1.25rem;
-  padding-bottom: 1.875rem;
-  gap: 1.25rem;
-  background-color: $darkBlue;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.2);
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+    overflow: hidden;
 
 
-  & button {
-    @include styledButton;
+    &__countdown {
+      font-size: 1.5rem;
+      min-width: 4rem;
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      color: $primary;
 
-    &.selected {
-      border: 3px solid $primary;
-      color: white;
-      background-color: $primary;
+      &::after {
+        position: relative;
+        bottom: 1.6px;
+        font-family: 'Font Awesome 5 Free';
+        color: $primary;
+        font-weight: bold;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+        content: '\f2f2';
+        font-size: 1.3rem;
+        padding-right: 1.25rem;
+        height: 100%;
+        width: 2rem;
+      }
     }
 
+    &__question {
+      width: 90%;
+      position: relative;
+      padding: 1.25rem;
+    }
+
+    &__index {
+      padding: 0 1.25rem;
+      min-width: 4rem;
+      line-height: 2rem;
+      font-size: 2rem;
+      display: flex;
+      color: white;
+      justify-content: center;
+      background-color: $primary;
+      align-items: center;
+    }
   }
-}
 
-.questionCard__answers button.selected {
-  background-color: $primary;
-  color: white;
-}
+  &__timer {
+    height: 10px;
+    background-color: $darkBlue;
 
-// ------------------------------------------------------------ //
+    &::after {
+      display: block;
+      background-color: $primary;
+      content: '';
+      height: 100%;
+      width: 0%;
+      animation: timer 20s linear forwards;
+    }
+  }
 
-.questionBox {
-  width: 100px;
-  height: 100px;
-  background-color: $primary;
-  color: white;
-  border-radius: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 2rem;
-  font-weight: bold;
+  &__answers {
+    padding: 1.25rem;
+    padding-bottom: 1.875rem;
+    gap: 1.25rem;
+    background-color: $darkBlue;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+
+
+
+    & button {
+      @include styledButton;
+
+      &.selected {
+        border: 3px solid $primary;
+        color: white;
+        background-color: $primary;
+      }
+
+    }
+  }
 }
