@@ -9,8 +9,8 @@ export default function Resume({ questionResume }) {
       <summary>Question {index}</summary>
       <p className="resume__content">
         <span>{question} </span>
-        <span className="correctAnswer">Correct answer : {correctAnswer} </span>
         {!isCorrect && <span className="userAnswer">Your answer : {userAnswer} </span>}
+        <span className="correctAnswer">Correct answer : {correctAnswer} </span>
       </p>
     </details >
   );
