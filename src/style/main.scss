@@ -9,7 +9,7 @@
 @import './components/scoreBar.scss';
 @import './components/categories.scss';
 @import './components/optionPicker.scss';
-
+@import './components/footer.scss';
 @import './pages/homePage.scss';
 @import './pages/quizzPage.scss';
 
@@ -23,10 +23,16 @@ body {
   overflow-x: hidden;
 }
 
+#root {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
 main {
   padding: 0 1.25rem;
   max-width: 1440px;
-  margin: 5rem auto 0 auto;
+  margin: 2.5rem auto 0 auto;
 }
 
 * {
