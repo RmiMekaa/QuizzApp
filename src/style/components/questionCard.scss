@@ -1,6 +1,6 @@
 .questionCard {
   position: relative;
-  width: 730px;
+  width: 45rem;
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -28,7 +28,7 @@
 
     &__countdown {
       font-size: 1.5rem;
-      min-width: 4rem;
+      padding: 0 1.25rem 0 2.5rem;
       display: flex;
       justify-content: right;
       align-items: center;
@@ -41,13 +41,12 @@
         color: $primary;
         font-weight: bold;
         display: flex;
-        justify-content: right;
         align-items: center;
         content: '\f2f2';
         font-size: 1.3rem;
-        padding-right: 1.25rem;
+        padding-left: 0.25rem;
         height: 100%;
-        width: 2rem;
+        width: fit-content;
       }
     }
 

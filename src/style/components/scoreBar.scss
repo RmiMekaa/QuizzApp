@@ -23,7 +23,7 @@
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
 
     & span {
-      animation: fadeInOut 0.5s 2.25s backwards;
+      animation: fadeInOut 0.5s 2.5s backwards, scaleRebound 0.5s 2.5s;
       position: absolute;
     }
   }
@@ -86,6 +86,20 @@
 
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes scaleRebound {
+  0% {
+    transform: scale(0);
+  }
+
+  75% {
+    transform: scale(1.1);
+  }
+
+  100% {
+    transform: scale(1);
   }
 }
 

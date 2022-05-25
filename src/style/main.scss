@@ -8,14 +8,14 @@
 @import './components/resume.scss';
 @import './components/scoreBar.scss';
 @import './components/categories.scss';
-@import './components/difficulties.scss';
+@import './components/optionPicker.scss';
 
 @import './pages/homePage.scss';
 @import './pages/quizzPage.scss';
 
 body {
   margin: 0;
-  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  font-family: Roboto, 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $mediumBlue;
@@ -24,9 +24,9 @@ body {
 }
 
 main {
-  padding: 5rem 1.25rem 0 1.25rem;
+  padding: 0 1.25rem;
   max-width: 1440px;
-  margin: auto;
+  margin: 5rem auto 0 auto;
 }
 
 * {
