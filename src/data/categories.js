@@ -9,15 +9,15 @@ export const categories = [
   },
   {
     name: "Arts & Literature",
-    image: "generalKnowledge.jpg"
+    image: "arts.jpg"
   },
   {
     name: "Film & TV",
-    image: "generalKnowledge.jpg"
+    image: "film.jpg"
   },
   {
     name: "Food & Drink",
-    image: "generalKnowledge.jpg"
+    image: "food.jpg"
   },
   {
     name: "Geography",
@@ -33,11 +33,11 @@ export const categories = [
   },
   {
     name: "Science",
-    image: "generalKnowledge.jpg"
+    image: "science.jpg"
   },
   {
     name: "Society & Culture",
-    image: "generalKnowledge.jpg"
+    image: "society.jpg"
   },
   {
     name: "Sport & Leisure",
