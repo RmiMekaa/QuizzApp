@@ -11,6 +11,7 @@ export default function Categories({ selectedCategory, setCategory }) {
 
           return (
             <button
+              key={'category__' + category.name}
               className={(category.name === selectedCategory) ? 'categoryCard categoryCard--active' : 'categoryCard'}
               onClick={() => setCategory(category.name)}>
               <img src={background} alt=""></img>
