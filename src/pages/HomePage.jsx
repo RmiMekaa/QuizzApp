@@ -1,8 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Categories from '../components/Categories';
-import Difficulties from '../components/Difficulties';
-import Quantity from '../components/Quantity';
+import OptionPicker from '../components/OptionPicker';
+import { difficultyOptions, quantityOptions } from '../data/options';
 
 export default function HomePage({
   selectedDifficulty,
@@ -18,8 +18,8 @@ export default function HomePage({
     <main className='homePage'>
       <Categories {...{ selectedCategory, setCategory }} />
       <div style={{ display: 'flex', gap: '1.25rem' }}>
-        <Difficulties {...{ selectedDifficulty, setDifficulty }} />
-        <Quantity {...{ selectedQuantity, setQuantity }} />
+        <OptionPicker options={difficultyOptions} selectedOption={selectedDifficulty} setOption={setDifficulty} />
+        <OptionPicker options={quantityOptions} selectedOption={selectedQuantity} setOption={setQuantity} />
       </div>
 
       <button className='startButton' onClick={() => {

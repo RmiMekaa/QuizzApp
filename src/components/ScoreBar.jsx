@@ -8,9 +8,9 @@ export default function ScoreBar({ quizz, score }) {
 
   const text = () => {
     if (score === quizz.length) return "Score parfait ! Chapeau l'artiste !"
-    if (score > quizz.length / 2) return "Je suis sûr que tu peux faire mieux !"
-    if (score === quizz.length / 2) return 'Ouf ! Tout juste la moyenne !'
-    if (score < quizz.length / 2) return "Oups, des révisions s'imposent !"
+    if (score > quizz.length / 2) return "Pas mal, mais tu peux faire mieux !"
+    if (score === quizz.length / 2) return "Ouf ! Tout juste la moyenne !"
+    if (score < quizz.length / 2) return "Oups ! Des révisions s'imposent..."
     if (score === 0) return "Aïe..."
   }
 
@@ -19,7 +19,7 @@ export default function ScoreBar({ quizz, score }) {
       <div className='scoreBar__label'>
         <span>{score}/{quizz.length}</span>
         <svg className="scoreBar__spinner" viewBox="0 0 50 50">
-          <circle cx="25" cy="25" r="20" fill="none" stroke-width="5"></circle>
+          <circle cx="25" cy="25" r="20" fill="none" strokeWidth="5"></circle>
         </svg>
       </div>
       <div className='scoreBar__container'>
