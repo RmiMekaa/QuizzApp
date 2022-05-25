@@ -12,12 +12,12 @@ export default function QuizzPage({ selectedCategory, selectedDifficulty, select
   if (error) console.log(error)
 
   return (
-    <main className='quizzPage'>
+    <div className='quizzPage'>
       {index === quizz.length
         ? <Results {...{ quizz }} />
         : <QuestionCard question={quizz[index]} index={index} updateIndex={updateIndex}
         />
       }
-    </main>
+    </div>
   )
 }
