@@ -1,0 +1,17 @@
+footer {
+  background-color: $darkBlue;
+  height: 2.5rem;
+  color: white;
+  margin-top: 4rem;
+  display: flex;
+  align-items: center;
+
+  & span {
+    padding-left: 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  & a {
+    color: $primary;
+  }
+}
