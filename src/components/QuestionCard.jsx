@@ -17,7 +17,7 @@ export default function QuestionCard({ index, question, updateIndex }) {
    * - Add property user answer to the question object
    * - Trigger animation
    * - Update question index
-   * - Reset countdown
+   * - Reset countdown and selected answer
    */
   const submitAnswer = useCallback((answer) => {
     setSelectedAnswer(answer)
@@ -26,6 +26,7 @@ export default function QuestionCard({ index, question, updateIndex }) {
     setTimeout(() => {
       updateIndex(index + 1)
       setCountdown(initialCountdown)
+      setSelectedAnswer('')
       toggleSwipeCard(false)
     }, 400)
   }, [question, index, updateIndex])
