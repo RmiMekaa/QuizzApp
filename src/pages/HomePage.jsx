@@ -15,16 +15,23 @@ export default function HomePage({
   const navigate = useNavigate();
 
   return (
-    <main className='homePage'>
-      <Categories {...{ selectedCategory, setCategory }} />
-      <div style={{ display: 'flex', gap: '1.25rem' }}>
-        <OptionPicker options={difficultyOptions} selectedOption={selectedDifficulty} setOption={setDifficulty} />
-        <OptionPicker options={quantityOptions} selectedOption={selectedQuantity} setOption={setQuantity} />
+    <div className='homePage'>
+      <div>
+        <Categories {...{ selectedCategory, setCategory }} />
+        <div style={{ display: 'flex', gap: '1.25rem' }}>
+          <OptionPicker options={difficultyOptions} selectedOption={selectedDifficulty} setOption={setDifficulty} />
+          <OptionPicker options={quantityOptions} selectedOption={selectedQuantity} setOption={setQuantity} />
+        </div>
       </div>
 
+      <div className='customQuizes'>
+        My quizzes
+      </div>
+
+
       <button className='startButton' onClick={() => {
-        navigate('/quizz')
+        navigate('/quiz')
       }}>Start</button>
-    </main>
+    </div>
   )
 }

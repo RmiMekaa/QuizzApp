@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import formatQuizz from '../utils/formatQuizz'
+import formatQuiz from '../utils/formatQuiz'
 
 /**
- * Custom Hook to fetch a quizz from The Trivia API
+ * Custom Hook to fetch a quiz from The Trivia API
  * @param   {String}  category    The required category
  * @param   {String}  difficulty  The required difficulty
  * @param   {Number}  quantity    The required number of questions
- * @return  {Object}  The state for loading, quizz and error
+ * @return  {Object}  The state for loading, quiz and error
  */
-export default function useGetQuizz(category, difficulty, quantity) {
-  const [quizz, setQuizz] = useState(null)
+export default function useGetQuiz(category, difficulty, quantity) {
+  const [quiz, setQuiz] = useState(null)
   const [error, setError] = useState(null)
   const [loading, setLoading] = useState(false)
 
@@ -31,13 +31,13 @@ export default function useGetQuizz(category, difficulty, quantity) {
       .get(url())
       .then(response => {
         console.log(response.data);
-        let quizz = formatQuizz(response.data) //Format quizz
-        setQuizz(quizz)
+        let quiz = formatQuiz(response.data) //Format quiz
+        setQuiz(quiz)
       })
       .catch(err => setError(err))
       .finally(() => setLoading(false))
   }, [category, difficulty, quantity])
 
-  return { loading, quizz, error }
+  return { loading, quiz, error }
 }
 

@@ -1,4 +1,4 @@
-const mockQuizz = [
+const mockQuiz = [
   {
     title: "À quel peintre doit-on \"Le Voyageur contemplant une mer de nuages\" ?",
     answers: ["Gustave Courbet", "Caspar David Friedrich", "Théodore Géricault", "Eugène Delacroix"],
@@ -51,4 +51,4 @@ const mockQuizz = [
   }
 ]
 
-export default mockQuizz;
+export default mockQuiz;
