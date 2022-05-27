@@ -10,12 +10,10 @@ export default function HomePage({ appState, setAppState }) {
 
   return (
     <div className='homePage'>
-      <div>
-        <Categories {...{ appState, setAppState }} />
-        <div style={{ display: 'flex', gap: '1.25rem' }}>
-          <OptionPicker target='selectedDifficulty' options={difficultyOptions} {...{ appState, setAppState }} />
-          <OptionPicker target='selectedQuantity' options={quantityOptions} {...{ appState, setAppState }} />
-        </div>
+      <Categories {...{ appState, setAppState }} />
+      <div style={{ display: 'flex', gap: '1.25rem' }}>
+        <OptionPicker target='selectedDifficulty' options={difficultyOptions} {...{ appState, setAppState }} />
+        <OptionPicker target='selectedQuantity' options={quantityOptions} {...{ appState, setAppState }} />
       </div>
 
       <div className='customQuizzes'>
