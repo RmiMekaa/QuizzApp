@@ -1,7 +1,8 @@
 .questionCard {
   position: relative;
   top: 3rem;
-  width: 45rem;
+  width: 50%;
+  min-width: 40rem;
   display: flex;
   flex-direction: column;
   font-weight: bold;
