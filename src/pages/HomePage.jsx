@@ -4,28 +4,22 @@ import Categories from '../components/Categories';
 import OptionPicker from '../components/OptionPicker';
 import { difficultyOptions, quantityOptions } from '../data/options';
 
-export default function HomePage({
-  selectedDifficulty,
-  setDifficulty,
-  selectedCategory,
-  setCategory,
-  selectedQuantity,
-  setQuantity
-}) {
+export default function HomePage({ appState, setAppState }) {
   const navigate = useNavigate();
+  console.log(appState);
 
   return (
     <div className='homePage'>
       <div>
-        <Categories {...{ selectedCategory, setCategory }} />
+        <Categories {...{ appState, setAppState }} />
         <div style={{ display: 'flex', gap: '1.25rem' }}>
-          <OptionPicker options={difficultyOptions} selectedOption={selectedDifficulty} setOption={setDifficulty} />
-          <OptionPicker options={quantityOptions} selectedOption={selectedQuantity} setOption={setQuantity} />
+          <OptionPicker target='selectedDifficulty' options={difficultyOptions} {...{ appState, setAppState }} />
+          <OptionPicker target='selectedQuantity' options={quantityOptions} {...{ appState, setAppState }} />
         </div>
       </div>
 
-      <div className='customQuizes'>
-        My quizzes
+      <div className='customQuizzes'>
+        {appState.customQuizzes.map(quiz => <span>{quiz.name}</span>)}
       </div>
 
 

@@ -1,7 +1,7 @@
 import React from 'react'
 import { categories } from '../data/categories'
 
-export default function Categories({ selectedCategory, setCategory }) {
+export default function Categories({ appState, setAppState }) {
   return (
     <section className='categories'>
       <h3 className='categories__heading'>Category</h3>
@@ -12,8 +12,8 @@ export default function Categories({ selectedCategory, setCategory }) {
           return (
             <button
               key={'category__' + category.name}
-              className={(category.name === selectedCategory) ? 'categoryCard categoryCard--active' : 'categoryCard'}
-              onClick={() => setCategory(category.name)}>
+              className={(category.name === appState.selectedCategory) ? 'categoryCard categoryCard--active' : 'categoryCard'}
+              onClick={() => setAppState({ ...appState, selectedCategory: category.name })}>
               <img src={background} alt=""></img>
               <h4>{category.name}</h4>
             </button>

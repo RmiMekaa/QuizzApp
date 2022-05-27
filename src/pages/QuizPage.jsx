@@ -3,8 +3,9 @@ import QuestionCard from '../components/QuestionCard'
 import useGetQuiz from '../hooks/useGetQuiz'
 import Results from '../components/Results'
 
-export default function QuizPage({ selectedCategory, selectedDifficulty, selectedQuantity }) {
+export default function QuizPage({ appState }) {
   const [index, updateIndex] = useState(0)
+  const { selectedCategory, selectedDifficulty, selectedQuantity } = appState;
   const { loading, quiz, error } = useGetQuiz(selectedCategory, selectedDifficulty, selectedQuantity)
 
   if (!quiz) return;
