@@ -58,7 +58,7 @@
       }
 
       &.display {
-        animation: modale 3s forwards, leftRight 0.5s ease-in-out alternate infinite;
+        animation: modale 3.2s, leftRight 0.5s ease-in-out alternate infinite;
       }
     }
 
@@ -132,7 +132,7 @@ input#correctAnswer {
     opacity: 1;
   }
 
-  75% {
+  80% {
     opacity: 1;
   }
 
