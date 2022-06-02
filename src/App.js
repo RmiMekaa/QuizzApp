@@ -5,12 +5,14 @@ import Footer from './components/Footer.jsx';
 import QuizPage from "./pages/QuizPage.jsx";
 import HomePage from "./pages/HomePage.jsx";
 import CreateQuizPage from "./pages/CreateQuizPage.jsx";
+import mockQuiz from "./mockData/mockQuiz.js";
 
 const initialState = {
   selectedCategory: 'Any',
   selectedDifficulty: 'Any',
   selectedQuantity: 10,
-  customQuizzes: []
+  customQuizzes: [mockQuiz],
+  selectedQuiz: null,
 }
 
 export default function App() {
@@ -31,7 +33,7 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<HomePage {...{ appState, setAppState }} />} />
-          <Route path="/quiz" element={<QuizPage {...{ appState }} />} />
+          <Route path="/quiz" element={<QuizPage {...{ appState, setAppState }} />} />
           <Route path="/create-quiz" element={<CreateQuizPage {...{ appState, setAppState }} />} />
         </Routes>
       </main>
