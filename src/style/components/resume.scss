@@ -8,7 +8,7 @@
 
   & summary {
     position: relative;
-    padding: 0.5rem 1rem;
+    padding: $smallPadding $mediumPadding;
     list-style: none;
     display: flex;
     align-items: center;
@@ -17,7 +17,7 @@
   }
 
   &__content {
-    padding: 0.5rem 1rem;
+    padding: $smallPadding $mediumPadding;
     display: flex;
     flex-direction: column;
 
@@ -39,11 +39,11 @@
 
 
     & span:first-child {
-      padding-bottom: 0.5rem;
+      padding-bottom: $smallPadding;
     }
 
     & span:last-child {
-      padding-bottom: 0.5rem;
+      padding-bottom: $smallPadding;
     }
   }
 }

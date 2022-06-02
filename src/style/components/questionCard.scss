@@ -30,7 +30,7 @@
 
     &__countdown {
       font-size: 1.5rem;
-      padding: 0 1.25rem 0 2.5rem;
+      padding: 0 $mediumPadding 0 $largePadding;
       display: flex;
       justify-content: right;
       align-items: center;
@@ -55,11 +55,11 @@
     &__question {
       width: 90%;
       position: relative;
-      padding: 1.25rem;
+      padding: $mediumPadding;
     }
 
     &__index {
-      padding: 0 1.25rem;
+      padding: 0 $mediumPadding;
       min-width: 4rem;
       line-height: 2rem;
       font-size: 2rem;
@@ -86,9 +86,9 @@
   }
 
   &__answers {
-    padding: 1.25rem;
-    padding-bottom: 1.875rem;
-    gap: 1.25rem;
+    padding: $mediumPadding;
+    padding-bottom: $largePadding;
+    gap: $mediumPadding;
     background-color: $darkBlue;
     display: grid;
     grid-template-columns: 1fr 1fr;

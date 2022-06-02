@@ -17,7 +17,7 @@
     height: 3rem;
     border-top-left-radius: 1rem;
     border-top-right-radius: 1rem;
-    padding-left: 1.25rem;
+    padding-left: $mediumPadding;
   }
 
   &__quiz {
@@ -26,7 +26,7 @@
     color: $mediumBlue;
     font-weight: bold;
     background-color: white;
-    padding: 0.75rem 1.25rem;
+    padding: $smallPadding $mediumPadding;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -38,7 +38,7 @@
       border-top-right-radius: 0.5rem;
       border-bottom-right-radius: 0.5rem;
       display: flex;
-      padding: 0 1.25rem;
+      padding: 0 $mediumPadding;
       align-items: center;
       color: white;
       background-color: $primary;
@@ -69,10 +69,10 @@
   }
 
   &__newQuestion {
-    padding: 0.75rem 1.25rem;
+    padding: $smallPadding $mediumPadding;
 
     h3 {
-      padding-bottom: 0.75rem;
+      padding-bottom: $smallPadding;
     }
 
     input::placeholder {
@@ -101,7 +101,7 @@
   }
 
   &__answers {
-    padding: 1rem 0 1rem 0;
+    padding: $smallPadding 0;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;

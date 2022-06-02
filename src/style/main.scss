@@ -1,4 +1,4 @@
-@import './colors.scss';
+@import './variables.scss';
 @import './mixins/styledButton.scss';
 @import './mixins/defaultContainer.scss';
 @import './animations.scss';
@@ -31,7 +31,7 @@ body {
 }
 
 main {
-  padding: 0 1.25rem;
+  padding: 0 $mediumPadding;
   max-width: 1440px;
   margin: 4rem auto 0 auto;
   width: 100%;
