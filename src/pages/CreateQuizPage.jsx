@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import shuffle from '../utils/shuffle'
 
 const initialState = {
-  newQuiz: { name: '', quiz: [] },
+  newQuiz: { name: '', questions: [] },
   newQuestion: {
     question: '',
     correctAnswer: '',
@@ -16,8 +16,6 @@ export default function CreateQuizPage({ appState, setAppState }) {
   const [newQuiz, setnewQuiz] = useState(initialState.newQuiz);
   const [newQuestion, setNewQuestion] = useState(initialState.newQuestion);
   const [displayModale, toggleModale] = useState(false)
-
-  console.log(newQuiz);
 
   return (
     <div className='createQuizPage'>
@@ -59,7 +57,7 @@ export default function CreateQuizPage({ appState, setAppState }) {
   )
 
   /**
-   * Update the corresponding state value on change
+   * Update the corresponding state value on input change
    * @param {*} e Event
    * @return {void}
    */
@@ -71,6 +69,13 @@ export default function CreateQuizPage({ appState, setAppState }) {
     }))
   }
 
+  /**
+   * Handles question creation
+   * - Add question to the state array
+   * - Trigger animation
+   * - Reset the form
+   * @param {*} e 
+   */
   function addQuestion(e) {
     e.preventDefault();
     let formatQuestion = {
@@ -78,16 +83,19 @@ export default function CreateQuizPage({ appState, setAppState }) {
       correctAnswer: newQuestion.correctAnswer,
       question: newQuestion.question,
     }
-    setnewQuiz({ ...newQuiz, quiz: [...newQuiz.quiz, formatQuestion] });
+    setnewQuiz({ ...newQuiz, questions: [...newQuiz.questions, formatQuestion] });
     setNewQuestion(initialState.newQuestion)
-    // Trigger animation ↓
+    // Trigger "question created" animation ↓
     const modale = document.getElementById('modale');
     modale.classList.add('display');
-    setTimeout(() => {
-      modale.classList.remove('display')
-    }, 2000)
+    setTimeout(() => { modale.classList.remove('display') }, 3200)
   }
 
+  /**
+   * Handles quiz creation
+   * - Push the new quiz to the state array 'customQuizzes
+   * - Toggle modale to display the success message
+  */
   function createQuiz() {
     setAppState({ ...appState, customQuizzes: [...appState.customQuizzes, { name: newQuiz.name, quiz: newQuiz.quiz }] })
     toggleModale(v => !v)

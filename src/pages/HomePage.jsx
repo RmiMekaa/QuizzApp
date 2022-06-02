@@ -6,7 +6,6 @@ import { difficultyOptions, quantityOptions } from '../data/options';
 
 export default function HomePage({ appState, setAppState }) {
   const navigate = useNavigate();
-  console.log(appState);
 
   return (
     <div className='homePage'>
@@ -14,16 +13,24 @@ export default function HomePage({ appState, setAppState }) {
       <div style={{ display: 'flex', gap: '1.25rem' }}>
         <OptionPicker target='selectedDifficulty' options={difficultyOptions} {...{ appState, setAppState }} />
         <OptionPicker target='selectedQuantity' options={quantityOptions} {...{ appState, setAppState }} />
+        <button
+          className='startButton'
+          onClick={() => {
+            setAppState({ ...appState, selectedQuiz: null })
+            navigate('/quiz')
+          }}
+        >
+          Start
+        </button>
       </div>
 
       <div className='customQuizzes'>
-        {appState.customQuizzes.map(quiz => <span>{quiz.name}</span>)}
+        {appState.customQuizzes.map(quiz => <span onClick={() => {
+          setAppState({ ...appState, selectedCategory: "custom", selectedQuiz: quiz.questions })
+          navigate('/quiz')
+        }}>{quiz.name}</span>)}
       </div>
 
-
-      <button className='startButton' onClick={() => {
-        navigate('/quiz')
-      }}>Start</button>
-    </div>
+    </div >
   )
 }
