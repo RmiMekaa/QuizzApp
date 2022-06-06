@@ -5,10 +5,14 @@ import useGetQuiz from '../hooks/useGetQuiz'
 
 export default function QuizPage({ appState }) {
   const [index, updateIndex] = useState(0)
-  const { loading, error, quiz } = useGetQuiz(appState)
+  //const { loading, error, quiz } = useGetQuiz(appState)
+  let quiz = appState.selectedQuiz;
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
+  if (!quiz) {
+    return <p>Error!</p>
+  }
+  //if (loading) return <p>Loading...</p>;
+  //if (error) return <p>Error!</p>;
 
   if (quiz) {
     return (

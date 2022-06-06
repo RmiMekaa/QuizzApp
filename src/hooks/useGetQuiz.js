@@ -20,9 +20,9 @@ export default function useGetQuiz(appState) {
   }
 
   useEffect(() => {
-    setLoading(true)
-    if (selectedQuiz) setQuiz(selectedQuiz);
+    if (selectedQuiz !== null) return setQuiz(selectedQuiz);
     else {
+      setLoading(true)
       let url = configUrl(selectedCategory, selectedDifficulty, selectedQuantity)
       axios.get(url)
         .then(response => {
@@ -32,8 +32,6 @@ export default function useGetQuiz(appState) {
         .catch(err => setError(err))
         .finally(() => setLoading(false))
     }
-    setLoading(false)
-
   }, [selectedQuiz, selectedCategory, selectedDifficulty, selectedQuantity])
 
   return { loading, error, quiz }
