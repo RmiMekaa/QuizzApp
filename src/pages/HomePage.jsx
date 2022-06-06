@@ -1,36 +1,51 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
-import Categories from '../components/Categories';
-import OptionPicker from '../components/OptionPicker';
-import { difficultyOptions, quantityOptions } from '../data/options';
+import React, { useState } from 'react'
+import CustomQuizzes from '../components/CustomQuizzes';
+import { difficultyOptions, quantityOptions, categoryOptions } from '../data/options';
+import OptionsPicker from '../components/OptionsPicker';
+import StartWindow from '../components/StartWindow';
 
 export default function HomePage({ appState, setAppState }) {
-  const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
 
   return (
-    <div className='homePage'>
-      <Categories {...{ appState, setAppState }} />
-      <div style={{ display: 'flex', gap: '1.25rem' }}>
-        <OptionPicker target='selectedDifficulty' options={difficultyOptions} {...{ appState, setAppState }} />
-        <OptionPicker target='selectedQuantity' options={quantityOptions} {...{ appState, setAppState }} />
-        <button
-          className='startButton'
-          onClick={() => {
-            setAppState({ ...appState, selectedQuiz: null })
-            navigate('/quiz')
-          }}
-        >
-          Start
-        </button>
+    <section className='homePage'>
+      <OptionsPicker
+        options={categoryOptions}
+        heading="Select Category"
+        remotedState='selectedCategory'
+        state={appState}
+        updateState={setAppState}
+        direction='column'
+      />
+
+      <div className='centralColumn'>
+        <StartWindow {...{ appState, setAppState, setLoading, setError }} />
+        <div style={{ height: '20%', display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+          <OptionsPicker
+            options={difficultyOptions}
+            heading="Difficulty :"
+            remotedState='selectedDifficulty'
+            state={appState}
+            updateState={setAppState}
+            direction="row"
+          />
+          <OptionsPicker
+            options={quantityOptions}
+            heading="Quantity :"
+            remotedState='selectedQuantity'
+            state={appState}
+            updateState={setAppState}
+            direction="row"
+          />
+        </div>
       </div>
 
-      <div className='customQuizzes'>
-        {appState.customQuizzes.map(quiz => <span onClick={() => {
-          setAppState({ ...appState, selectedCategory: "custom", selectedQuiz: quiz.questions })
-          navigate('/quiz')
-        }}>{quiz.name}</span>)}
-      </div>
+      <CustomQuizzes {...{ appState, setAppState }} />
 
-    </div >
+    </section >
   )
 }
