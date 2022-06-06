@@ -20,7 +20,7 @@
     border-radius: 2.5rem;
     background-color: $darkBlue;
     border: 3px solid $primary;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
 
     & span {
       animation: fadeInOut 0.5s 2.5s backwards, scaleRebound 0.5s 2.5s;
@@ -35,7 +35,7 @@
     border-radius: 1rem;
     height: 1.5rem;
     overflow: hidden;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
 
     &__filler {
       height: 100%;

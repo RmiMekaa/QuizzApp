@@ -7,9 +7,10 @@
 @import './components/results.scss';
 @import './components/resume.scss';
 @import './components/scoreBar.scss';
-@import './components/categories.scss';
-@import './components/optionPicker.scss';
+@import './components/optionsPicker.scss';
 @import './components/footer.scss';
+@import './components/startWindow.scss';
+@import './components/customQuizzes.scss';
 @import './pages/homePage.scss';
 @import './pages/quizPage.scss';
 @import './pages/createQuizPage.scss';
@@ -22,6 +23,9 @@ body {
   background-color: $mediumBlue;
   user-select: none;
   overflow-x: hidden;
+  background-image: url('../images/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #root {
@@ -41,6 +45,12 @@ main {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+button {
+  border: none;
+  background-color: white;
+  cursor: pointer;
 }
 
 @media all and (max-width: 768px) {

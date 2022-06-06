@@ -58,7 +58,7 @@
       }
 
       &.display {
-        animation: modale 3.2s, leftRight 0.5s ease-in-out alternate infinite;
+        animation: modale 3.2s 0.8s, leftRight 0.5s ease-in-out alternate infinite;
       }
     }
 
@@ -69,14 +69,21 @@
   }
 
   &__newQuestion {
-    padding: $smallPadding $mediumPadding;
+    padding: 0 $mediumPadding;
+    display: flex;
+    flex-direction: column;
+    gap: $smallPadding;
 
     h3 {
-      padding-bottom: $smallPadding;
+      padding-top: $smallPadding;
     }
 
     input::placeholder {
       color: rgba(255, 255, 255, 0.6);
+    }
+
+    input#question {
+      //margin: 0 $smallPadding;
     }
 
   }
@@ -101,11 +108,11 @@
   }
 
   &__answers {
-    padding: $smallPadding 0;
+    padding-bottom: $mediumPadding;
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1rem;
+    gap: $smallPadding;
 
     span {
       position: absolute;
@@ -156,4 +163,17 @@ button.addQuestion {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 0 0 1rem 1rem;
+  background-color: $primary;
+  color: white;
+}
+
+#questionForm {
+  overflow: hidden;
+  max-height: 200px;
+  transition: max-height 0.8s cubic-bezier(0, 1, 0, 1);
+}
+
+#questionForm.animate {
+  max-height: 0;
 }

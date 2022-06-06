@@ -4,7 +4,7 @@
   background-color: $darkBlue;
   height: 2.5rem;
   width: 100%;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
 
   &__wrapper {
     position: relative;
@@ -24,7 +24,7 @@
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     background-color: $primary;
-    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
     cursor: pointer;
   }
 

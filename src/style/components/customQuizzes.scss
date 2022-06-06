@@ -1,0 +1,90 @@
+.customQuizzes {
+  @include defaultContainer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $smallPadding;
+  height: fit-content;
+
+  &__heading {
+    font-family: 'Londrina Solid', cursive;
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+  }
+}
+
+.customQuiz {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+  &__heading {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: $smallPadding $mediumPadding;
+    border-radius: 0.5rem;
+    font-family: 'Londrina Solid', cursive;
+    font-size: 1.125rem;
+    font-weight: 400;
+    background-color: white;
+    color: $mediumBlue;
+    cursor: pointer;
+
+    &:after {
+      content: '\f142';
+      font-size: 0.8rem;
+      font-family: 'Font Awesome 5 Free';
+      font-weight: bold;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    width: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+
+    button {
+      font-size: 1rem;
+      flex: 1;
+      color: $mediumBlue;
+      font-family: 'Londrina Solid', cursive;
+      font-weight: 400;
+      background-color: white;
+      padding: $smallPadding;
+
+      &:first-child {
+        border-radius: 0 0 0 0.5rem;
+      }
+
+      &:last-child {
+        border-radius: 0 0 0.5rem 0;
+      }
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+}
+
+.customQuiz.open .customQuiz__heading {
+  background-color: $primary;
+  color: white;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+button.newQuiz {
+  width: 100%;
+  color: white;
+  font-family: 'Londrina Solid', cursive;
+  font-weight: 400;
+  font-size: 1.125rem;
+  background-color: $primary;
+  border-radius: 0.5rem;
+  padding: $smallPadding;
+  margin-top: 0.5rem;
+}

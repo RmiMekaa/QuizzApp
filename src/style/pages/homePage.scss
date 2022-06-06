@@ -1,15 +1,23 @@
 .homePage {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
+  padding-top: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-areas: "a b c";
+  gap: 1.5rem;
 
-.startButton {
-  @include styledButton;
-  background-color: $primary;
-  color: white;
-  font-size: 1.2rem;
-  text-transform: uppercase;
-  width: 10rem;
+  & div:first-child {
+    grid-area: a;
+  }
+
+  & .centralColumn {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    grid-area: b;
+  }
+
+  & div:nth-child(3) {
+    grid-area: c;
+  }
 }
