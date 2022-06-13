@@ -115,12 +115,25 @@
   }
 }
 
-//     &__content ul {
-//     }
-//   }
+.difficulty::before {
+  content: '';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: bold;
+  height: 100%;
+  font-size: 1.125rem;
+  position: relative;
+  bottom: 2px;
+  margin-right: 0.5rem;
+}
 
-//   .startWindowContainer {
-//     border-radius: 0;
-//     max-width: 100%;
-//   }
-// }
+.difficulty.Easy::before {
+  content: '\f54c';
+}
+
+.difficulty.Medium::before {
+  content: '\f54c \f54c';
+}
+
+.difficulty.Hard::before {
+  content: '\f54c \f54c \f54c';
+}
