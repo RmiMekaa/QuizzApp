@@ -6,8 +6,10 @@ export default function CustomQuizzes({ appState, setAppState }) {
   return (
     <div className='customQuizzes'>
       <h3 className='customQuizzes__heading'>My Quizzes</h3>
-      {appState.customQuizzes.map(quiz =>
-        <CustomQuiz quiz={quiz} />)}
+      {appState.customQuizzes.length === 0
+        ? "you have not created a quizz yet"
+        : appState.customQuizzes.map(quiz => <CustomQuiz quiz={quiz} />)
+      }
       <button className='newQuiz' onClick={() => navigate('create-quiz')}>Create New Quiz</button>
     </div >
   )
