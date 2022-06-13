@@ -40,6 +40,7 @@ export default function StartWindow({ appState, setAppState, setLoading, setErro
   return (
     <div className='startWindow'>
       <div className='startWindow__content'>
+        <h4>{appState.selectedCategory === 'Any' ? (appState.selectedCategory + " category") : (appState.selectedCategory)}</h4>
         <img
           key={'backround__' + appState.selectedCategory} id='startWindow__image'
           src={require(`../images/categories/${appState.selectedCategory.toLowerCase()}.jpg`)}
@@ -47,8 +48,7 @@ export default function StartWindow({ appState, setAppState, setLoading, setErro
         />
         <div className='startWindow__content__resume'>
           <ul>
-            <span>{appState.selectedCategory === 'Any' ? (" • " + appState.selectedCategory + " category") : (" • " + appState.selectedCategory)}</span>
-            <span>{appState.selectedDifficulty === 'Any' ? (" • " + appState.selectedDifficulty + " difficulty") : (" • " + appState.selectedDifficulty)}</span>
+            <span>{appState.selectedDifficulty === 'Any' ? (appState.selectedDifficulty + " difficulty") : (appState.selectedDifficulty)}</span>
             <span>{appState.selectedQuantity === 1 ? (" • " + appState.selectedQuantity + " question") : (" • " + appState.selectedQuantity + " questions")}</span>
           </ul>
           <button className='startButton' onClick={handleClick}>Start</button>
