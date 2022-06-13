@@ -4,6 +4,7 @@
   width: 100%;
   border-radius: 0.5rem;
   cursor: pointer;
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
 
   & summary {
     display: flex;
@@ -14,11 +15,17 @@
     font-weight: 300;
     font-size: 1.125rem;
     border-radius: 0.5rem;
-    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
 
     &::-webkit-details-marker {
       display: none;
     }
+
+    &::after {
+      font-family: "Font Awesome 5 Free";
+      content: '\f078';
+      font-weight: bold;
+    }
+
   }
 
   & button {
@@ -47,9 +54,16 @@
 }
 
 .optionDropdown[open] {
-  &>summary {
+  & summary {
+    position: relative;
+    z-index: 10000;
+    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.2);
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
+
+    &::after {
+      transform: rotate(180deg);
+    }
   }
 
   & button:last-child {

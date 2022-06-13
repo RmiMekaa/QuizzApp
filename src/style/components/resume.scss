@@ -46,45 +46,46 @@
       padding-bottom: $smallPadding;
     }
   }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  //Add my own icon
+  summary::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f078';
+    font-weight: bold;
+  }
+
+  summary::before {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: -2.5rem;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    width: 2.5rem;
+    font-family: "Font Awesome 5 Free";
+    content: '\f00d';
+    background-color: $primary;
+    height: 100%;
+    font-weight: bold;
+  }
+
+  .resume.correct summary::before {
+    background-color: $green;
+    content: '\f00c';
+  }
+
+  .resume[open] {
+    border-bottom-left-radius: 0.5rem;
+
+    & summary::after {
+      content: "\f077";
+    }
+  }
 }
 
 // Clear default arrow
-summary::-webkit-details-marker {
-  display: none;
-}
-
-//Add my own icon
-summary::after {
-  font-family: "Font Awesome 5 Free";
-  content: '\f078';
-  font-weight: bold;
-}
-
-summary::before {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  left: -2.5rem;
-  border-top-left-radius: 0.5rem;
-  border-bottom-left-radius: 0.5rem;
-  width: 2.5rem;
-  font-family: "Font Awesome 5 Free";
-  content: '\f00d';
-  background-color: $primary;
-  height: 100%;
-  font-weight: bold;
-}
-
-.resume.correct summary::before {
-  background-color: $green;
-  content: '\f00c';
-}
-
-.resume[open] {
-  border-bottom-left-radius: 0.5rem;
-
-  & summary::after {
-    content: "\f077";
-  }
-}

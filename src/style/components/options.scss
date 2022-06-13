@@ -1,0 +1,11 @@
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: $smallPadding;
+}
+
+@media all and (max-width: 768px) {
+  .options {
+    gap: 0;
+  }
+}
