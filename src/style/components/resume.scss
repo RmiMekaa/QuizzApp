@@ -5,7 +5,6 @@
   width: 50rem;
   box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
 
-
   & summary {
     position: relative;
     padding: $smallPadding $mediumPadding;
@@ -74,18 +73,18 @@
     font-weight: bold;
   }
 
-  .resume.correct summary::before {
-    background-color: $green;
-    content: '\f00c';
-  }
 
-  .resume[open] {
-    border-bottom-left-radius: 0.5rem;
-
-    & summary::after {
-      content: "\f077";
-    }
-  }
 }
 
-// Clear default arrow
+.resume.correct summary::before {
+  background-color: $green;
+  content: '\f00c';
+}
+
+.resume[open] {
+  border-bottom-left-radius: 0.5rem;
+
+  & summary::after {
+    transform: rotate(180deg);
+  }
+}
