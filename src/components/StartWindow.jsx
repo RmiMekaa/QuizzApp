@@ -37,24 +37,20 @@ export default function StartWindow({ appState, setAppState, setLoading, setErro
     navigate('/quiz');
   };
 
-  const resume = (category, difficulty, quantity) => {
-    let categoryResume = category === 'Any' ? (category + " category · ") : (category + " · ");
-    let difficultyResume = difficulty === 'Any' ? (difficulty + " difficulty · ") : (difficulty + " · ");
-    let quantityResume = quantity === 1 ? (quantity + " question") : (quantity + " questions");
-    return categoryResume + difficultyResume + quantityResume;
-  }
-
   return (
-    <div className='startWindowContainer'>
-      <div className='startWindow'>
+    <div className='startWindow'>
+      <div className='startWindow__content'>
         <img
           key={'backround__' + appState.selectedCategory} id='startWindow__image'
-          className='startWindow__image'
           src={require(`../images/categories/${appState.selectedCategory.toLowerCase()}.jpg`)}
           alt="category"
         />
-        <div className='startWindow__content'>
-          <span>{resume(appState.selectedCategory, appState.selectedDifficulty, appState.selectedQuantity)}</span>
+        <div className='startWindow__content__resume'>
+          <ul>
+            <span>{appState.selectedCategory === 'Any' ? (appState.selectedCategory + " category") : (appState.selectedCategory)}</span>
+            <span>{appState.selectedDifficulty === 'Any' ? (" · " + appState.selectedDifficulty + " difficulty") : (" · " + appState.selectedDifficulty)}</span>
+            <span>{appState.selectedQuantity === 1 ? (" · " + appState.selectedQuantity + " question") : (" · " + appState.selectedQuantity + " questions")}</span>
+          </ul>
           <button className='startButton' onClick={handleClick}>Start</button>
         </div>
       </div>
