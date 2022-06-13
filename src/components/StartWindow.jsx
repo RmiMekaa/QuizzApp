@@ -47,9 +47,9 @@ export default function StartWindow({ appState, setAppState, setLoading, setErro
         />
         <div className='startWindow__content__resume'>
           <ul>
-            <span>{appState.selectedCategory === 'Any' ? (appState.selectedCategory + " category") : (appState.selectedCategory)}</span>
-            <span>{appState.selectedDifficulty === 'Any' ? (" · " + appState.selectedDifficulty + " difficulty") : (" · " + appState.selectedDifficulty)}</span>
-            <span>{appState.selectedQuantity === 1 ? (" · " + appState.selectedQuantity + " question") : (" · " + appState.selectedQuantity + " questions")}</span>
+            <span>{appState.selectedCategory === 'Any' ? (" • " + appState.selectedCategory + " category") : (" • " + appState.selectedCategory)}</span>
+            <span>{appState.selectedDifficulty === 'Any' ? (" • " + appState.selectedDifficulty + " difficulty") : (" • " + appState.selectedDifficulty)}</span>
+            <span>{appState.selectedQuantity === 1 ? (" • " + appState.selectedQuantity + " question") : (" • " + appState.selectedQuantity + " questions")}</span>
           </ul>
           <button className='startButton' onClick={handleClick}>Start</button>
         </div>
