@@ -1,11 +1,14 @@
 .homePage {
-  padding-top: 2rem;
+  padding-top: 1rem;
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas: "a b c";
   gap: 1.5rem;
 
-  & div:first-child {
+  &__options {
+    display: flex;
+    flex-direction: column;
+    gap: $smallPadding;
     grid-area: a;
   }
 
@@ -15,9 +18,51 @@
     flex-direction: column;
     gap: 1.5rem;
     grid-area: b;
+
+    &__options {
+      height: 20%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
   }
 
   & div:nth-child(3) {
     grid-area: c;
   }
+}
+
+//Responsive Design
+@media all and (max-width: 768px) {
+  .homePage {
+    padding-top: 0;
+    grid-template-columns: 1fr;
+    grid-template-areas: "a"
+      "b"
+      "c";
+    gap: 0;
+
+    & div:first-child {
+      grid-area: b;
+    }
+
+    & .centralColumn {
+      grid-area: a;
+      gap: 0;
+
+      &__options {
+        height: 20%;
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+    }
+
+    & div:nth-child(3) {
+      grid-area: c;
+      margin-top: 2rem;
+    }
+
+  }
+
 }
