@@ -26,7 +26,7 @@ export default function QuestionCard({ index, question, updateIndex }) {
     setTimeout(() => {
       updateIndex(index + 1)
       setCountdown(initialCountdown)
-      setSelectedAnswer('')
+      setSelectedAnswer(undefined)
       toggleSwipeCard(false)
     }, 400)
   }, [question, index, updateIndex])
@@ -47,7 +47,6 @@ export default function QuestionCard({ index, question, updateIndex }) {
       <div className='questionCard__header'>
         <div className='questionCard__header__index'>{index + 1}</div>
         <span className='questionCard__header__question'>{question.question}</span>
-        <div className='questionCard__header__countdown'>{countdown}</div>
       </div>
       <div key={'question_' + index + '_timer'} className='questionCard__timer'></div> {/*Add a key to force timer to reset on render update*/}
       <div className='questionCard__answers'>
@@ -56,7 +55,7 @@ export default function QuestionCard({ index, question, updateIndex }) {
             <button
               key={'answer_' + answer}
               onClick={() => submitAnswer(answer)}
-              className={answer === selectedAnswer ? 'selected' : null}
+              className={answer === selectedAnswer ? 'selected' : undefined}
             >
               {answer}
             </button>
