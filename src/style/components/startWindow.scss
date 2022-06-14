@@ -53,6 +53,7 @@
       button {
         position: relative;
         font-family: 'Londrina Solid', cursive;
+        font-weight: 300;
         padding: $smallPadding $largePadding;
         border-radius: 0.5rem;
         border: none;
@@ -98,7 +99,7 @@
         justify-content: right;
       }
 
-      ul {
+      p {
         display: flex;
         flex-direction: column;
       }
@@ -116,7 +117,6 @@
 }
 
 .difficulty::before {
-  content: '';
   font-family: 'Font Awesome 5 Free';
   font-weight: bold;
   height: 100%;

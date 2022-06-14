@@ -63,6 +63,17 @@
   }
 }
 
+@keyframes cardFadeOutMobile {
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(750px);
+    opacity: 0;
+  }
+}
+
 @keyframes cardFadeIn {
   0% {
     transform: translateX(750px);
@@ -82,5 +93,27 @@
 
   100% {
     transform: translateX(0);
+  }
+}
+
+@keyframes cardFadeInMobile {
+  0% {
+    transform: translateY(750px);
+    opacity: 0;
+
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(-40px);
+  }
+
+  70% {
+    transform: translateY(-40px);
+
+  }
+
+  100% {
+    transform: translateY(0);
   }
 }

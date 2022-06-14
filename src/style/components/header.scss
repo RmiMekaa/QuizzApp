@@ -16,6 +16,7 @@
   }
 
   &__logo {
+    height: 160%;
     position: absolute;
     z-index: 10000;
     width: 3.5rem;
@@ -28,6 +29,10 @@
     background-color: $primary;
     box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
     cursor: pointer;
+
+    img {
+      width: 2rem;
+    }
   }
 
   & span {
@@ -51,4 +56,19 @@
 .header__logo:hover+span {
   transform: scaleX(1);
   transition: transform 0.2s
+}
+
+@media all and (max-width: 768px) {
+  .header__logo {
+    width: 3rem;
+    height: 130%;
+
+    & img {
+      width: 1.5rem;
+    }
+  }
+
+  .header span {
+    left: 3.125rem;
+  }
 }

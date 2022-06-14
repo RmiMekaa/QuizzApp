@@ -38,10 +38,10 @@ body {
 }
 
 main {
-  padding: 0 $mediumPadding;
+  padding: $largePadding $mediumPadding;
   max-width: 1440px;
-  margin: 4rem auto 0 auto;
   width: 100%;
+  margin: 0 auto;
 }
 
 * {
