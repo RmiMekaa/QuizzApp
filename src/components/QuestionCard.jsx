@@ -9,15 +9,11 @@ export default function QuestionCard({ index, question, updateIndex }) {
   const [swipeCard, toggleSwipeCard] = useState(false)
   const [selectedAnswer, setSelectedAnswer] = useState(undefined)
 
-  const initialCountdown = 20;
-  const [countdown, setCountdown] = useState(initialCountdown);
-
   /**
    * Action on submit (UseCallBack needed to avoid useEffect dependency change on every render)
    * - Add property user answer to the question object
    * - Trigger animation
    * - Update question index
-   * - Reset countdown and selected answer
    */
   const submitAnswer = useCallback((answer) => {
     setSelectedAnswer(answer)
@@ -25,7 +21,6 @@ export default function QuestionCard({ index, question, updateIndex }) {
     question.userAnswer = answer;
     setTimeout(() => {
       updateIndex(index + 1)
-      setCountdown(initialCountdown)
       setSelectedAnswer(undefined)
       toggleSwipeCard(false)
     }, 400)
@@ -33,14 +28,13 @@ export default function QuestionCard({ index, question, updateIndex }) {
 
   //Handles timer, submitAnswer() will be called with 'No response' in parameter after 20s
   useEffect(() => {
-    const timer = setInterval(() => {
-      if (countdown === 1) submitAnswer('Pas de réponse');
-      else setCountdown(countdown - 1);
-    }, 1000)
+    const timer = setTimeout(() => {
+      submitAnswer('Pas de réponse')
+    }, 20000)
     return () => {
       clearInterval(timer)
     }
-  }, [index, updateIndex, submitAnswer, countdown])
+  }, [index, updateIndex, submitAnswer])
 
   return (
     <article className={swipeCard ? 'questionCard swipe' : 'questionCard'}>
@@ -63,7 +57,6 @@ export default function QuestionCard({ index, question, updateIndex }) {
         })}
       </div>
     </article >
-
   )
 }
 
