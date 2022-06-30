@@ -7,11 +7,11 @@ export default function ScoreBar({ quiz, score }) {
   }
 
   const text = () => {
-    if (score === quiz.length) return "Score parfait ! Chapeau l'artiste !"
-    if (score > quiz.length / 2) return "Pas mal, mais tu peux faire mieux !"
-    if (score === quiz.length / 2) return "Ouf ! Tout juste la moyenne !"
-    if (score < quiz.length / 2) return "Oups ! Des révisions s'imposent..."
-    if (score === 0) return "Aïe..."
+    if (percentage === 100) return "Perfect score, congratulations !"
+    if (percentage > 75 && percentage < 100) return "Great score ! But is this the best you can do ?"
+    if (percentage >= 50 && percentage < 75) return "Not bad, but you could do better !"
+    if (percentage < 50 && percentage > 0) return "Oops...I won't pretend that it is a good result, sorry"
+    if (percentage === 0) return "Ouch...From zero to hero ?"
   }
 
   return (
