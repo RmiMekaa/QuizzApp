@@ -7,9 +7,11 @@ import shuffle from "./shuffle";
  */
 export default function formatQuiz(quiz) {
   for (let i = 0; i < quiz.length; i++) {
-    if (quiz[i].type === 'boolean') quiz[i].answers = ['True', 'False'] //Always display 'True | False' in that order if question type is true/false
-    else quiz[i].answers = shuffle([...quiz[i].incorrectAnswers, quiz[i].correctAnswer]) //Store all answers options in a single property and shuffle the array
-    const { incorrectAnswers, ...question } = quiz[i]; //Remove property 'incorrect_answers'
+    const question = {
+      question: quiz[i].question,
+      answers: shuffle([...quiz[i].incorrectAnswers, quiz[i].correctAnswer]),
+      correctAnswer: quiz[i].correctAnswer
+    }
     quiz[i] = question;
   }
 
