@@ -1,8 +1,8 @@
 import React from 'react'
 import OptionsDropdown from './OptionsDropdown'
-import { difficultyOptions, quantityOptions, categoryOptions } from '../data/options';
+import { difficultyOptions, quantityOptions, categoryOptions } from '../../data/options';
 
-export default function Options({ appState, setAppState }) {
+export default function OptionsContainer({ appState, setAppState }) {
   const dropdowns = document.querySelectorAll("details");
   dropdowns.forEach((targetDetail) => {
     targetDetail.addEventListener("click", () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import CustomQuizzes from '../components/CustomQuizzes';
-import Options from '../components/Options';
-import StartWindow from '../components/StartWindow';
+import CustomQuizzes from '../components/homePage/CustomQuizzes';
+import OptionsContainer from '../components/homePage/OptionsContainer';
+import StartWindow from '../components/homePage/StartWindow';
 
 export default function HomePage({ appState, setAppState }) {
   const [loading, setLoading] = useState(false);
@@ -12,7 +12,7 @@ export default function HomePage({ appState, setAppState }) {
 
   return (
     <section className='homePage'>
-      <Options {...{ appState, setAppState }} />
+      <OptionsContainer {...{ appState, setAppState }} />
       <StartWindow {...{ appState, setAppState, setLoading, setError }} />
       <CustomQuizzes {...{ appState, setAppState }} />
     </section >

@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import formatQuiz from '../utils/formatQuiz';
+import formatQuiz from '../../utils/formatQuiz';
 import axios from 'axios';
 
 
@@ -43,7 +43,7 @@ export default function StartWindow({ appState, setAppState, setLoading, setErro
         <h4>{appState.selectedCategory === 'Any' ? "Any category" : (appState.selectedCategory)}</h4>
         <img
           key={'backround__' + appState.selectedCategory} id='startWindow__image'
-          src={require(`../images/categories/${appState.selectedCategory.toLowerCase()}.jpg`)}
+          src={require(`../../images/categories/${appState.selectedCategory.toLowerCase()}.jpg`)}
           alt="category"
         />
         <div className='startWindow__content__resume'>
