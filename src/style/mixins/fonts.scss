@@ -1,0 +1,17 @@
+@mixin fontLondrina($size, $weight) {
+  font-family: 'Londrina Solid', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin fontRoboto($size, $weight) {
+  font-family: 'Roboto', sans-serif;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin fontAwesome($size, $weight) {
+  font-family: "Font Awesome 5 Free";
+  font-size: $size;
+  font-weight: $weight;
+}
