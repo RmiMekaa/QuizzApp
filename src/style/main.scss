@@ -3,6 +3,7 @@
 @import './variables.scss';
 @import './mixins/styledButton.scss';
 @import './mixins/defaultContainer.scss';
+@import './mixins/fonts.scss';
 @import './animations.scss';
 @import './components/questionCard.scss';
 @import './components/header.scss';
@@ -19,8 +20,8 @@
 @import './pages/createQuizPage.scss';
 
 body {
+  @include fontRoboto(1rem, 400);
   margin: 0;
-  font-family: Roboto, 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: $mediumBlue;
@@ -54,6 +55,10 @@ button {
   border: none;
   background-color: white;
   cursor: pointer;
+}
+
+textarea {
+  @include fontRoboto(1rem, 300);
 }
 
 @media all and (max-width: 768px) {

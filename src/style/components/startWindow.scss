@@ -1,5 +1,5 @@
 .startWindow {
-  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  box-shadow: $defaultBoxShadow;
   border-radius: 1rem;
   height: fit-content;
   height: 500px;
@@ -11,12 +11,10 @@
     height: 100%;
 
     h4 {
-      font-family: 'Londrina Solid', cursive;
+      @include fontLondrina(2.75rem, 300);
       position: absolute;
       padding: $mediumPadding $largePadding;
       z-index: 1000;
-      font-size: 3rem;
-      font-weight: 300;
       color: white;
       background: linear-gradient(rgba(0, 0, 0, 0.7), transparent);
       height: 30%;
@@ -35,6 +33,7 @@
     }
 
     &__resume {
+      @include fontLondrina(1.5rem, 300);
       position: absolute;
       bottom: 0;
       display: flex;
@@ -45,21 +44,16 @@
       padding: $mediumPadding;
       height: 50%;
       background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-      font-family: 'Londrina Solid', cursive;
-      font-size: 1.5rem;
       line-height: 1.5rem;
-      font-weight: 300;
 
       button {
+        @include fontLondrina(1.5rem, 300);
         position: relative;
-        font-family: 'Londrina Solid', cursive;
-        font-weight: 300;
         padding: $smallPadding $largePadding;
         border-radius: 0.5rem;
         border: 3px solid transparent;
         border-bottom: none;
         color: white;
-        font-size: 1.5rem;
         background-color: darken($primary, 15%);
 
         &:hover {
@@ -122,10 +116,8 @@
 }
 
 .difficulty::before {
-  font-family: 'Font Awesome 5 Free';
-  font-weight: bold;
+  @include fontAwesome(1.125rem, bold);
   height: 100%;
-  font-size: 1.125rem;
   position: relative;
   bottom: 2px;
   margin-right: 0.5rem;

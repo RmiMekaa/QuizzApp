@@ -3,7 +3,7 @@
   border-top-right-radius: 0.5rem;
   border-bottom-right-radius: 0.5rem;
   width: 50rem;
-  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  box-shadow: $defaultBoxShadow;
 
   & summary {
     position: relative;
@@ -52,12 +52,12 @@
 
   //Add my own icon
   summary::after {
-    font-family: "Font Awesome 5 Free";
+    @include fontAwesome(1rem, bold);
     content: '\f078';
-    font-weight: bold;
   }
 
   summary::before {
+    @include fontAwesome(1rem, bold);
     position: absolute;
     display: flex;
     align-items: center;
@@ -66,11 +66,9 @@
     border-top-left-radius: 0.5rem;
     border-bottom-left-radius: 0.5rem;
     width: 2.5rem;
-    font-family: "Font Awesome 5 Free";
     content: '\f00d';
     background-color: $primary;
     height: 100%;
-    font-weight: bold;
   }
 
 

@@ -27,7 +27,7 @@
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
     background-color: $primary;
-    box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+    box-shadow: $defaultBoxShadow;
     cursor: pointer;
 
     img {

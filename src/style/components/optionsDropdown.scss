@@ -4,16 +4,14 @@
   width: 100%;
   border-radius: 0.5rem;
   cursor: pointer;
-  box-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.4);
+  box-shadow: $defaultBoxShadow;
 
   & summary {
+    @include fontLondrina(1.125rem, 300);
     display: flex;
     justify-content: space-between;
     padding: $smallPadding $mediumPadding;
     list-style: none;
-    font-family: 'Londrina Solid', cursive;
-    font-weight: 300;
-    font-size: 1.125rem;
     border-radius: 0.5rem;
 
     &::-webkit-details-marker {
@@ -21,14 +19,14 @@
     }
 
     &::after {
-      font-family: "Font Awesome 5 Free";
+      @include fontAwesome(1rem, bold);
       content: '\f078';
-      font-weight: bold;
     }
 
   }
 
   & button {
+    @include fontLondrina(1.125rem, 300);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -38,9 +36,6 @@
     padding: $smallPadding $largePadding;
     border: 3px solid transparent;
     cursor: pointer;
-    font-family: 'Londrina Solid', cursive;
-    font-weight: 300;
-    font-size: 1rem;
 
     &:hover {
       border-color: $primary;
