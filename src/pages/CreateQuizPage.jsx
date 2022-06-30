@@ -1,115 +1,125 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import shuffle from '../utils/shuffle'
+import TextareaAutosize from 'react-textarea-autosize';
 
-const initialState = {
-  newQuiz: { name: '', questions: [] },
-  newQuestion: {
-    question: '',
-    correctAnswer: '',
-    wrongAnswer1: '',
-    wrongAnswer2: '',
-    wrongAnswer3: ''
-  }
+const emptyQuestionTemplate = {
+  question: '',
+  correctAnswer: '',
+  incorrectAnswer1: '',
+  incorrectAnswer2: '',
+  incorrectAnswer3: ''
 }
 
 export default function CreateQuizPage({ appState, setAppState }) {
-  const [newQuiz, setnewQuiz] = useState(initialState.newQuiz);
-  const [newQuestion, setNewQuestion] = useState(initialState.newQuestion);
-  const [displayModale, toggleModale] = useState(false)
+  const [index, setIndex] = useState(0);
+  const [quizName, setQuizName] = useState('');
+  const emptyArray = [];
+  const [questions, setQuestions] = useState(emptyArray)
+  const [currentQuestion, setCurrentQuestion] = useState(questions[index] ? questions[index] : emptyQuestionTemplate)
+
+  console.log('quiz : ', questions);
+  console.log('current question : ', currentQuestion);
+
+  useEffect(() => {
+    if (!questions[index]) setQuestions([...questions, emptyQuestionTemplate])
+    let copyQuestions = [...questions];
+    copyQuestions[index] = currentQuestion;
+    setQuestions(copyQuestions)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [index, currentQuestion])
 
   return (
-    <div className='createQuizPage'>
-      {displayModale ? <span onClick={() => { toggleModale(v => !v); setnewQuiz(initialState.newQuiz) }}>Quiz created !</span> : (
-        <>
-          <form className='form'>
-            <h2>New Quiz</h2>
+    <form className="create-quiz-form" onSubmit={(e) => createQuiz(e)}>
 
-            <div className='form__quiz'>
-              <input
-                id='quizName'
-                type='text'
-                placeholder='Quiz name...'
-                minLength={3}
-                maxLength={25}
-                value={newQuiz.name}
-                onChange={(e) => setnewQuiz({ ...newQuiz, name: e.target.value })}
-              ></input>
-              <span>Number of questions : {newQuiz.questions.length}</span>
-              <aside id='modale'>Question created !</aside>
-            </div>
+      <input
+        className="create-quiz-form__quizName"
+        id='quizName'
+        type='text'
+        placeholder='Quiz Name...'
+        minLength={3}
+        maxLength={25}
+        value={quizName}
+        onChange={(e) => setQuizName(e.target.value)}
+      ></input>
 
-            <div id='questionForm' className='form__newQuestion'>
-              <h3>Question {newQuiz.questions.length + 1}</h3>
-              <input id='question' placeholder='Your question...' type='text' minLength={10} maxLength={100} value={newQuestion.question} onChange={(e) => handleChange(e)}></input>
-              <div className='form__answers'>
-                <input id='correctAnswer' placeholder='Correct answer...' name='correctAnswer' type='text' maxLength={50} value={newQuestion.correctAnswer} onChange={(e) => handleChange(e)} />
-                <input id='wrongAnswer1' placeholder='Wrong answer 1...' type='text' maxLength={50} value={newQuestion.wrongAnswer1} onChange={(e) => handleChange(e)} />
-                <input id='wrongAnswer2' placeholder='Wrong answer 2...' type='text' maxLength={50} value={newQuestion.wrongAnswer2} onChange={(e) => handleChange(e)} />
-                <input id='wrongAnswer3' placeholder='Wrong answer 3...' type='text' maxLength={50} value={newQuestion.wrongAnswer3} onChange={(e) => handleChange(e)} />
-              </div>
-            </div>
+      <article className='card'>
+        <div className='card__header'>
+          <span className='card__header__index'>{index + 1}</span>
+          <TextareaAutosize className='card__header__question' id='question' placeholder='Your question...' maxLength={300} value={currentQuestion.question} onChange={(e) => handleChange(e)} />
+        </div>
+        <div className='card__answers'>
+          <input id='correctAnswer' placeholder='Correct answer...' name='correctAnswer' maxLength={200} value={currentQuestion.correctAnswer} onChange={(e) => handleChange(e)} />
+          <input id='incorrectAnswer1' placeholder='Incorrect answer 1...' maxLength={200} value={currentQuestion.incorrectAnswer1} onChange={(e) => handleChange(e)} />
+          <input id='incorrectAnswer2' placeholder='Incorrect answer 2...' maxLength={200} value={currentQuestion.incorrectAnswer2} onChange={(e) => handleChange(e)} />
+          <input id='incorrectAnswer3' placeholder='Incorrect answer 3...' maxLength={200} value={currentQuestion.incorrectAnswer3} onChange={(e) => handleChange(e)} />
+        </div>
+      </article>
 
-            <button className='addQuestion' onClick={(e) => addQuestion(e)}>Add question</button>
-            <button className='createQuiz' type='submit' onClick={() => createQuiz()}>Create quiz</button>
+      <div className='create-quiz-form__controls'>
+        {questions.map((question, questionIndex) => <button
+          type='button'
+          onClick={() => {
+            setCurrentQuestion(questions[questionIndex] ? questions[questionIndex] : emptyQuestionTemplate)
+            setIndex(questionIndex)
+          }}
+          className={index === questionIndex ? 'active' : ''}
+        >{questionIndex + 1}</button>)}
+        <button type='button'
+          onClick={handleAddQuestion}>+</button>
+      </div>
 
-          </form>
-          {newQuiz.questions.map((question) => { return <p key={question.question}>{question.question}</p> })}
-        </>
-      )}
-    </div >
+      <button type='submit' className='create-quiz-form__submit-button'>Create Quiz !</button>
+    </form>
   )
 
-  /**
-   * Update the corresponding state value on input change
-   * @param {*} e Event
-   * @return {void}
-   */
+  function handleAddQuestion() {
+    const fullfilled = checkInputsFilling(currentQuestion)
+    if (fullfilled) {
+      setCurrentQuestion(emptyQuestionTemplate)
+      setIndex(questions.length)
+    }
+    else alert(`You must fill all the question ${index + 1} fields to be able to add a new question`)
+  }
+
+  function checkInputsFilling(obj) {
+    let allInputsFilled = true;
+    for (let key in obj) {
+      if (obj[key] === "") allInputsFilled = false;
+    }
+    return allInputsFilled;
+  }
+
   function handleChange(e) {
     const { id, value } = e.target;
-    setNewQuestion((prevState) => ({
+    setCurrentQuestion((prevState) => ({
       ...prevState,
       [id]: value,
     }))
   }
 
-  /**
-   * Handles question creation:
-   * - Add the question to newQuiz.questions
-   * - Trigger animations
-   * - Reset the form
-   * @param {*} e 
-   */
-  function addQuestion(e) {
+  function createQuiz(e) {
     e.preventDefault();
-    triggerAnimations();
-    let formatQuestion = {
-      answers: shuffle([newQuestion.correctAnswer, newQuestion.wrongAnswer1, newQuestion.wrongAnswer2, newQuestion.wrongAnswer3]),
-      correctAnswer: newQuestion.correctAnswer,
-      question: newQuestion.question,
+    let isValid = checkInputsFilling(currentQuestion)
+    if (isValid) {
+      const formatQuestions = questions.map(obj => {
+        return {
+          question: obj.question,
+          correctAnswer: obj.correctAnswer,
+          answers: shuffle([
+            obj.correctAnswer,
+            obj.incorrectAnswer1,
+            obj.incorrectAnswer2,
+            obj.incorrectAnswer3
+          ])
+        }
+      })
+      const newQuiz = {
+        name: quizName,
+        questions: formatQuestions
+      }
+      setAppState({ ...appState, customQuizzes: [...appState.customQuizzes, newQuiz] })
     }
-    setTimeout(() => { // Wait for the end of the animation before update the state
-      setnewQuiz({ ...newQuiz, questions: [...newQuiz.questions, formatQuestion] });
-      setNewQuestion(initialState.newQuestion)
-    }, 800)
-  }
-
-
-  function triggerAnimations() {
-    const questionForm = document.getElementById('questionForm');
-    const modale = document.getElementById('modale');
-    questionForm.classList.add('animate');
-    modale.classList.add('display');
-    setTimeout(() => { questionForm.classList.remove('animate') }, 800)
-    setTimeout(() => { modale.classList.remove('display') }, 3200)
-  }
-
-  /**
-   * Handles quiz creation
-   * - Push the new quiz to the state array 'customQuizzes
-   * - Toggle modale to display the success message
-  */
-  function createQuiz() {
-    setAppState({ ...appState, customQuizzes: [...appState.customQuizzes, newQuiz] })
-    toggleModale(v => !v)
+    else alert(`You must fill all the question ${index + 1} fields to complete the quiz`)
   }
 }
