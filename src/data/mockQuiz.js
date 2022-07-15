@@ -1,4 +1,4 @@
-const mockQuiz = {
+const artQuiz = {
   name: 'Art Quiz',
   questions: [
     {
@@ -54,4 +54,4 @@ const mockQuiz = {
   ]
 }
 
-export default mockQuiz;
+export default artQuiz;
