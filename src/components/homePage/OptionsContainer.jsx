@@ -3,7 +3,7 @@ import OptionsDropdown from './OptionsDropdown'
 import { difficultyOptions, quantityOptions, categoryOptions } from '../../data/options';
 
 export default function OptionsContainer({ appState, setAppState }) {
-  const dropdowns = document.querySelectorAll("details");
+  const dropdowns = document.querySelectorAll("details.optionDropdown");
   dropdowns.forEach((targetDetail) => {
     targetDetail.addEventListener("click", () => {
       dropdowns.forEach((detail) => {

@@ -6,9 +6,6 @@ export default function QuizPage({ appState }) {
   const [index, updateIndex] = useState(0)
   let quiz = appState.selectedQuiz;
 
-  if (!quiz) {
-    return <p>Error!</p>
-  }
   //if (loading) return <p>Loading...</p>;
   //if (error) return <p>Error!</p>;
 
@@ -23,4 +20,5 @@ export default function QuizPage({ appState }) {
       </div>
     )
   }
+  else return <p>Error!</p>;
 }

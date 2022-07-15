@@ -17,4 +17,5 @@ export default function HomePage({ appState, setAppState }) {
       <CustomQuizzes {...{ appState, setAppState }} />
     </section >
   )
+
 }
