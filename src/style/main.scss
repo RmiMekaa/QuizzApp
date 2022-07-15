@@ -4,7 +4,9 @@
 @import './mixins/styledButton.scss';
 @import './mixins/defaultContainer.scss';
 @import './mixins/fonts.scss';
-@import './animations.scss';
+@import './animations/timer.scss';
+@import './animations/logoShake.scss';
+@import './animations/cardFadeInOut.scss';
 @import './components/questionCard.scss';
 @import './components/header.scss';
 @import './components/results.scss';
@@ -15,6 +17,7 @@
 @import './components/footer.scss';
 @import './components/startWindow.scss';
 @import './components/customQuizzes.scss';
+@import './components/confirmationModale.scss';
 @import './pages/homePage.scss';
 @import './pages/quizPage.scss';
 @import './pages/createQuizPage.scss';

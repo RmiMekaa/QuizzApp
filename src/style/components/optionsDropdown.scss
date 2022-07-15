@@ -10,6 +10,7 @@
     @include fontLondrina(1.125rem, 300);
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding: $smallPadding $mediumPadding;
     list-style: none;
     border-radius: 0.5rem;
@@ -21,6 +22,7 @@
     &::after {
       @include fontAwesome(1rem, bold);
       content: '\f078';
+      height: fit-content;
     }
 
   }

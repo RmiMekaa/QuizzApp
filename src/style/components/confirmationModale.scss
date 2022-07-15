@@ -1,0 +1,33 @@
+.confirmation-modal-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1000000;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation-modal-content {
+  @include defaultContainer;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: auto;
+
+  span {
+    width: 100%;
+    text-align: center;
+  }
+
+  button {
+    @include styledButton;
+    flex-grow: 1;
+    min-width: fit-content;
+    padding: .5rem;
+  }
+}

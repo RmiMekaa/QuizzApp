@@ -45,26 +45,28 @@
         color: white;
       }
     }
-
-    button:last-of-type {
-      border: none;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $primary;
-      color: white;
-      font-size: 1.75rem;
-      font-weight: 300;
-    }
   }
 
-  &__submit-button {
+  &__submit-button,
+  &__add-button {
     @include fontLondrina(1.25rem, 300);
     background-color: $primary;
     color: white;
     padding: $smallPadding $mediumPadding;
     margin-top: 2rem;
     border-radius: 0.5rem;
+  }
+
+  &__add-button {
+    background-color: white;
+    color: $primary;
+  }
+
+  button[disabled] {
+    cursor: initial;
+    background-color: $darkBlue;
+    color: $mediumBlue;
+    border: none;
   }
 }
 
