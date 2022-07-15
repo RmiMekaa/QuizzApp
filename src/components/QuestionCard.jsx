@@ -30,7 +30,7 @@ export default function QuestionCard({ index, question, updateIndex }) {
   useEffect(() => {
     const timer = setTimeout(() => {
       submitAnswer('Pas de réponse')
-    }, 20000)
+    }, 15000)
     return () => {
       clearInterval(timer)
     }
