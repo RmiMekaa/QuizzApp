@@ -48,7 +48,6 @@ export default function CreateQuizPage({ appState, setAppState }) {
     <form className="create-quiz-form" onSubmit={(e) => saveQuiz(e)}>
 
       <input
-        className="create-quiz-form__quizName"
         id='quizName'
         type='text'
         placeholder='Quiz Name...'
@@ -84,9 +83,9 @@ export default function CreateQuizPage({ appState, setAppState }) {
         )}
       </div>
 
-      <div>
-        <button className='create-quiz-form__add-button' type='button' onClick={handleAddQuestion} disabled={questionIsComplete ? false : true}>Add a question</button>
-        <button className='create-quiz-form__submit-button' type='submit' disabled={questionIsComplete ? false : true} >{method === 'edit' ? 'Save ' : 'Create '}Quiz !</button>
+      <div className='create-quiz-form__buttons'>
+        <button className='add-btn' type='button' onClick={handleAddQuestion} disabled={questionIsComplete ? false : true}>Add a question</button>
+        <button className='confirm-btn' type='submit' disabled={questionIsComplete ? false : true} >{method === 'edit' ? 'Save ' : 'Create '}Quiz !</button>
       </div>
     </form>
   )
@@ -180,7 +179,7 @@ export default function CreateQuizPage({ appState, setAppState }) {
     if (!questionIsComplete) return alert('You must complete the current question to save your quiz');
     if (!quizName) return alert('You must name your quiz');
     let nameIsValid = checkNameAvailability(quizName);
-    if (!nameIsValid) return alert('A quiz with this name already exist, please choose a unique name');
+    if (method === 'create' && !nameIsValid) return alert('A quiz with this name already exist, please choose a unique name');
 
     const newQuiz = setupQuiz()
 

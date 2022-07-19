@@ -3,11 +3,16 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 50%;
   margin: 0 auto;
+  max-width: 768px;
+  gap: 2rem;
 
-  &__quizName {
-    margin: 2rem 0 2rem 0;
+  input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+  }
+
+  input#quizName {
     background-color: $darkBlue;
     border: none;
     padding: $smallPadding $mediumPadding;
@@ -16,14 +21,11 @@
     border-radius: 1rem;
     outline: none;
 
-    &::placeholder {
-      color: rgba(255, 255, 255, 0.5);
-    }
   }
+
 
   &__controls {
     width: 100%;
-    margin-top: 2rem;
     display: flex;
     justify-content: left;
     gap: 0.5rem;
@@ -47,31 +49,36 @@
     }
   }
 
-  &__submit-button,
-  &__add-button {
-    @include fontLondrina(1.25rem, 300);
-    background-color: $primary;
-    color: white;
-    padding: $smallPadding $mediumPadding;
-    margin-top: 2rem;
-    border-radius: 0.5rem;
-  }
+  &__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 
-  &__add-button {
-    background-color: white;
-    color: $primary;
-  }
+    & button {
+      @include fontLondrina(1.25rem, 300);
+      background-color: $primary;
+      color: white;
+      padding: $smallPadding $mediumPadding;
+      border-radius: 0.5rem;
 
-  button[disabled] {
-    cursor: initial;
-    background-color: $darkBlue;
-    color: $mediumBlue;
-    border: none;
+      &.add-btn {
+        background-color: white;
+        color: $primary;
+      }
+
+      &[disabled] {
+        cursor: initial;
+        background-color: $darkBlue;
+        color: $mediumBlue;
+        border: none;
+      }
+
+    }
   }
 }
 
 //---------------card----------------------
-
 .card {
   width: 100%;
   box-shadow: $defaultBoxShadow;
@@ -89,6 +96,7 @@
     justify-content: center;
     align-items: center;
     width: 10%;
+    min-width: 3rem;
     background-color: $primary;
     border-top-left-radius: 1rem;
   }
@@ -98,6 +106,10 @@
     border-top-right-radius: 1rem;
     width: 90%;
     color: #2c597c;
+
+    &::placeholder {
+      font-style: italic;
+    }
   }
 }
 
@@ -113,12 +125,12 @@
 }
 
 .card input,
-.card textarea {
+.card__header__question {
   border: transparent;
   outline: none;
   font-size: 1rem;
   line-height: 1rem;
-  padding: 1.25rem;
+  padding: $mediumPadding;
   font-weight: bold;
   resize: none;
 }
@@ -139,4 +151,32 @@
 
 input#correctAnswer {
   border: 2px solid $green;
+}
+
+//Responsive Design
+@media all and (max-width: 768px) {
+  .create-quiz-form {
+    width: 100%;
+    padding: $mediumPadding;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    & input#quizName {
+      margin-top: 0.5rem;
+      width: 100%;
+      font-size: 1rem;
+    }
+
+    & .card {
+
+      &__answers {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    &__buttons {
+      flex-direction: column;
+    }
+  }
 }

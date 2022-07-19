@@ -36,6 +36,10 @@
       grid-area: a;
     }
 
+    & .customQuizzes {
+      border-top: 3px solid $primary;
+    }
+
   }
 
 }
