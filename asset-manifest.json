@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.6b7802d5.css",
-    "main.js": "/static/js/main.36d35ca5.js",
-    "static/media/food & drink.jpg": "/static/media/food & drink.455446ddcf39481798b6.jpg",
-    "static/media/geography.jpg": "/static/media/geography.73d976c3c86097bb1ad4.jpg",
-    "static/media/sport & leisure.jpg": "/static/media/sport & leisure.9c0d3d6eb6868b7bb75f.jpg",
-    "static/media/arts & literature.jpg": "/static/media/arts & literature.2546c2877b3b371c18e5.jpg",
-    "static/media/music.jpg": "/static/media/music.72ec3988da8fe2748c09.jpg",
-    "static/media/society & culture.jpg": "/static/media/society & culture.37c6c069605cc95ab5f2.jpg",
-    "static/media/history.jpg": "/static/media/history.aca61fe2dd2b853c673a.jpg",
-    "static/media/film & tv.jpg": "/static/media/film & tv.5ea3282772ecd05a6595.jpg",
-    "static/media/general knowledge.jpg": "/static/media/general knowledge.bd95dbfc623e073c63bd.jpg",
-    "static/media/science.jpg": "/static/media/science.f27d825377ed1d619812.jpg",
-    "static/media/background.jpg": "/static/media/background.976ff7d1a5ae76cd1a03.jpg",
-    "static/media/any.jpg": "/static/media/any.bff51ddc4d7fd45a7aed.jpg",
-    "index.html": "/index.html",
-    "main.6b7802d5.css.map": "/static/css/main.6b7802d5.css.map",
-    "main.36d35ca5.js.map": "/static/js/main.36d35ca5.js.map"
+    "main.css": "/QuizzApp/static/css/main.39a3559b.css",
+    "main.js": "/QuizzApp/static/js/main.e3aa1292.js",
+    "static/media/food & drink.jpg": "/QuizzApp/static/media/food & drink.455446ddcf39481798b6.jpg",
+    "static/media/geography.jpg": "/QuizzApp/static/media/geography.73d976c3c86097bb1ad4.jpg",
+    "static/media/sport & leisure.jpg": "/QuizzApp/static/media/sport & leisure.9c0d3d6eb6868b7bb75f.jpg",
+    "static/media/arts & literature.jpg": "/QuizzApp/static/media/arts & literature.2546c2877b3b371c18e5.jpg",
+    "static/media/music.jpg": "/QuizzApp/static/media/music.72ec3988da8fe2748c09.jpg",
+    "static/media/society & culture.jpg": "/QuizzApp/static/media/society & culture.37c6c069605cc95ab5f2.jpg",
+    "static/media/history.jpg": "/QuizzApp/static/media/history.aca61fe2dd2b853c673a.jpg",
+    "static/media/film & tv.jpg": "/QuizzApp/static/media/film & tv.5ea3282772ecd05a6595.jpg",
+    "static/media/general knowledge.jpg": "/QuizzApp/static/media/general knowledge.bd95dbfc623e073c63bd.jpg",
+    "static/media/science.jpg": "/QuizzApp/static/media/science.f27d825377ed1d619812.jpg",
+    "static/media/background.jpg": "/QuizzApp/static/media/background.976ff7d1a5ae76cd1a03.jpg",
+    "static/media/any.jpg": "/QuizzApp/static/media/any.bff51ddc4d7fd45a7aed.jpg",
+    "index.html": "/QuizzApp/index.html",
+    "main.39a3559b.css.map": "/QuizzApp/static/css/main.39a3559b.css.map",
+    "main.e3aa1292.js.map": "/QuizzApp/static/js/main.e3aa1292.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b7802d5.css",
-    "static/js/main.36d35ca5.js"
+    "static/css/main.39a3559b.css",
+    "static/js/main.e3aa1292.js"
   ]
 }
