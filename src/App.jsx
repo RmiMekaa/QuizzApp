@@ -32,9 +32,9 @@ export default function App() {
       <Header />
       <main>
         <Routes>
-          <Route path="/" element={<HomePage {...{ appState, setAppState }} />} />
-          <Route path="/quiz" element={<QuizPage {...{ appState, setAppState }} />} />
-          <Route path="/create-quiz/:method/:name" element={<CreateQuizPage {...{ appState, setAppState }} />} />
+          <Route path="/QuizzApp/" element={<HomePage {...{ appState, setAppState }} />} />
+          <Route path="/QuizzApp/quiz" element={<QuizPage {...{ appState, setAppState }} />} />
+          <Route path="/QuizzApp/create-quiz/:method/:name" element={<CreateQuizPage {...{ appState, setAppState }} />} />
         </Routes>
       </main>
       <Footer />
