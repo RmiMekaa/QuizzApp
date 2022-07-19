@@ -1,6 +1,6 @@
 {
   "name": "quiz",
-  "homepage": "https://rmimekaa.github.io/QuizzApp/",
+  "homepage": "https://rmimekaa.github.io/quiz-app",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
