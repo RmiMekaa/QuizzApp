@@ -51,7 +51,7 @@ export default function StartWindow({ appState, setAppState, setLoading, setErro
             <span className={'difficulty ' + appState.selectedDifficulty}>{appState.selectedDifficulty === 'Any' ? "Any difficulty" : (appState.selectedDifficulty)}</span>
             <span>{appState.selectedQuantity === 1 ? (" • 1 question") : (" • " + appState.selectedQuantity + " questions")}</span>
           </p>
-          <button className='startButton' onClick={handleClick}>Start</button>
+          <button className='startButton' onClick={handleClick}>Start !</button>
         </div>
       </div>
     </div>
