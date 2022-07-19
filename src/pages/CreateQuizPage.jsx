@@ -192,7 +192,7 @@ export default function CreateQuizPage({ appState, setAppState }) {
     }
 
     alert(method === 'edit' ? 'Quiz Edited succesfully !' : 'Quiz Created !');
-    navigate('/')
+    navigate('/QuizzApp/')
   }
 
   /**

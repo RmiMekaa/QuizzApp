@@ -34,7 +34,7 @@ export default function StartWindow({ appState, setAppState, setLoading, setErro
         setLoading(false);
       }
     }
-    navigate('/quiz');
+    navigate('/QuizzApp/quiz');
   };
 
   return (

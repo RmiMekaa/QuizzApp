@@ -8,7 +8,7 @@ export default function Header() {
   return (
     <header className='header'>
       <div className='header__wrapper'>
-        <a href="/" className='header__logo'>
+        <a href="/QuizzApp/" className='header__logo'>
           <img src={Logo} alt='logo' width={32} />
         </a>
         {location.pathname !== '/' && <span>Retour au menu</span>}

@@ -20,7 +20,7 @@ export default function Results({ quiz }) {
 
   if (!quiz) {
     alert('error')
-    navigate('/')
+    navigate('/QuizzApp/')
   }
 
   let score = 0;

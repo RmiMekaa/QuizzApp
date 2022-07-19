@@ -49,14 +49,14 @@ export default function CustomQuizzes({ appState, setAppState }) {
             </details>
           ))
         }
-        <button className='newQuiz' onClick={() => navigate('/create-quiz/create/new')}>Create New Quiz</button>
+        <button className='newQuiz' onClick={() => navigate('/QuizzApp/create-quiz/create/new')}>Create New Quiz</button>
       </div >
     </>
   )
 
   function handlePlay(quiz) {
     setAppState({ ...appState, selectedQuiz: quiz.questions })
-    navigate('/quiz')
+    navigate('/QuizzApp/quiz')
   }
 
   function deleteQuiz(quizName) {
@@ -65,7 +65,7 @@ export default function CustomQuizzes({ appState, setAppState }) {
   }
 
   function handleEdit(quiz) {
-    let path = '/create-quiz/edit/' + quiz.name
+    let path = '/QuizzApp/create-quiz/edit/' + quiz.name
     navigate(path)
   }
 
