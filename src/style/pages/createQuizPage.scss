@@ -46,6 +46,14 @@
         border: 2px solid $primary;
         color: white;
       }
+
+      &[disabled] {
+        cursor: initial;
+        background-color: $darkBlue;
+        color: $mediumBlue;
+        border: none;
+      }
+
     }
   }
 

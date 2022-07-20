@@ -17,6 +17,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  box-shadow: $defaultBoxShadow;
 
   &__heading {
     @include fontLondrina(1.125rem, 400);
@@ -77,10 +78,18 @@ button.newQuiz {
   background-color: $primary;
   border-radius: 0.5rem;
   padding: $smallPadding;
+  box-shadow: $defaultBoxShadow;
 }
 
 @media all and (max-width : 768px) {
   .customQuizzes {
-    border-radius: 0;
+    background-color: transparent;
+    box-shadow: none;
+    margin-top: 1rem;
+
+    h3 {
+      width: 100%;
+      text-align: left;
+    }
   }
 }

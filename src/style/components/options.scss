@@ -6,6 +6,8 @@
 
 @media all and (max-width: 768px) {
   .options {
-    gap: 0;
+    gap: $smallPadding;
+    padding: 0 $smallPadding;
+    margin-top: $smallPadding;
   }
 }

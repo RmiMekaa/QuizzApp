@@ -5,11 +5,16 @@
   align-items: center;
   flex-direction: column;
   text-align: left;
-  gap: 1.25rem;
+  //gap: 1.25rem;
+  width: 100%;
 
   &__wrapper {
     display: flex;
     gap: 3.75rem;
+  }
+
+  h2 {
+    @include fontLondrina(1.5rem, 400)
   }
 }
 
@@ -18,8 +23,11 @@
   flex-direction: column;
   gap: 1rem;
   padding-left: 2.5rem; //Pseudo element width
+  width: 100%;
+  max-width: 600px;
 
   details {
+    width: 100%;
     animation: resumeFadeIn 0.6s backwards ease-in-out;
   }
 
@@ -73,5 +81,11 @@
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .results {
+    padding: $mediumPadding $smallPadding;
   }
 }

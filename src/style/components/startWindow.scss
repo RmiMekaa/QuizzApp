@@ -13,11 +13,11 @@
     h4 {
       @include fontLondrina(2.75rem, 300);
       position: absolute;
-      padding: $mediumPadding $largePadding;
+      padding: $mediumPadding;
       z-index: 1000;
       color: white;
       background: linear-gradient(rgba(0, 0, 0, 0.7), transparent);
-      height: 30%;
+      height: auto;
       width: 100%;
       display: flex;
       justify-content: left;
@@ -56,25 +56,6 @@
         border-bottom: none;
         color: white;
         background-color: $primary;
-
-        //&:hover {
-        //  border-bottom: 4px solid darken($primary, 15%);
-        //}
-
-        //&::before {
-        //  content: 'Start !';
-        //  display: flex;
-        //  align-items: center;
-        //  justify-content: center;
-        //  width: 100%;
-        //  height: 100%;
-        //  position: absolute;
-        //  background-color: blue;
-        //  border-radius: 0.5rem;
-        //  left: 0;
-        //  top: -0.5rem;
-        //  background-color: $primary;
-        //}
       }
     }
   }
@@ -87,8 +68,7 @@
 @media all and (max-width: 768px) {
   .startWindow {
     box-shadow: none;
-    border-radius: 0;
-    height: 250px;
+    height: 200px;
     width: 100%;
 
     &__content {
@@ -97,18 +77,28 @@
       h4 {
         font-size: 2rem;
         justify-content: right;
+        padding: $smallPadding $mediumPadding;
       }
 
-      p {
-        display: flex;
-        flex-direction: column;
+      img {
+        border-radius: 0 0 1rem 1rem;
       }
 
       &__resume {
+        padding: 0 $smallPadding $smallPadding $smallPadding;
         font-size: 1.25rem;
+        display: flex;
+        flex-wrap: wrap;
+
+        p {
+          padding: 0 $smallPadding;
+        }
 
         button {
+          width: 100%;
           font-size: 1.25rem;
+          border-radius: 1rem;
+          padding: 0.5rem;
         }
       }
     }
